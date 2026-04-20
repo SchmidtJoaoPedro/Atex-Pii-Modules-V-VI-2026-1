@@ -1,4 +1,5 @@
-namespace Programa {
+using System;
+namespace Program {
     public class Beneficios {
         public bool MinhaCasaMinhaVida;     // famoso
         public bool AuxilioGas;
@@ -7,14 +8,5 @@ namespace Programa {
         public bool BPC;    // auxilio de garantia pra véio ganha o dindin no final no mês
         public bool PeDeMeia;  // pé-de-meia pra adolescente comprar drogas
         public bool Cisternas;  // vulgo Água para Todos
-    }
-    enum Ben {
-        CASA,
-        GAS,
-        BOLSAFAMILIA,
-        PASSAGEMIDOSOS,
-        BPC,
-        PEDEMEIA,
-        CISTERNAS
     }
 }
