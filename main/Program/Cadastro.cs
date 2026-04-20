@@ -1,5 +1,5 @@
-
-namespace Programa {    
+using System;
+namespace Program {    
     public class Cadastro {
         public string? nome;
         public uint idade;

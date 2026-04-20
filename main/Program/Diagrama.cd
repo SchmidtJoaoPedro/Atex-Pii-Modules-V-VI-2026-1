@@ -6,7 +6,7 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AQAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AQAAAAgAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Cadastro.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -15,23 +15,13 @@
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
-    <InheritanceLine Type="Programa.Cadastro" ManuallyRouted="true">
-      <Path>
-        <Point X="5.5" Y="3.305" />
-        <Point X="5.5" Y="3.534" />
-        <Point X="5.716" Y="3.534" />
-        <Point X="5.716" Y="3.771" />
-        <Point X="5.5" Y="3.771" />
-        <Point X="5.5" Y="4" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAiAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Beneficiario.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Programa.Beneficios">
-    <Position X="7" Y="3" Width="1.5" />
+    <Position X="6.75" Y="3" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
@@ -40,12 +30,5 @@
       <FileName>Beneficios.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="Programa.Ben">
-    <Position X="8.75" Y="3.25" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAACAEAAAAECAQAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Beneficios.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
