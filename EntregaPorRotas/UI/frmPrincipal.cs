@@ -34,5 +34,20 @@ namespace EntregaPorRotas.UI
             rua = nomeRua.Text;
             busca($"{search}{rua}");
         }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void cadsaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deletarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
