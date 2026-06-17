@@ -32,21 +32,26 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.nomeRua = new System.Windows.Forms.TextBox();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroComboBox3 = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroComboBox4 = new MetroFramework.Controls.MetroComboBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadasrtroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.IncluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deletarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cestaBasicasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entregaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadsaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deletarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,9 +69,9 @@
             // 
             this.panel3.Controls.Add(this.webView21);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(234, 0);
+            this.panel3.Location = new System.Drawing.Point(288, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1333, 745);
+            this.panel3.Size = new System.Drawing.Size(1279, 745);
             this.panel3.TabIndex = 3;
             // 
             // webView21
@@ -77,52 +82,97 @@
             this.webView21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webView21.Location = new System.Drawing.Point(0, 0);
             this.webView21.Name = "webView21";
-            this.webView21.Size = new System.Drawing.Size(1333, 745);
+            this.webView21.Size = new System.Drawing.Size(1279, 745);
             this.webView21.TabIndex = 1;
             this.webView21.ZoomFactor = 1D;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.nomeRua);
+            this.panel2.Controls.Add(this.metroLabel1);
+            this.panel2.Controls.Add(this.metroComboBox3);
+            this.panel2.Controls.Add(this.metroLabel3);
+            this.panel2.Controls.Add(this.metroComboBox4);
+            this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(234, 745);
+            this.panel2.Size = new System.Drawing.Size(288, 745);
             this.panel2.TabIndex = 2;
             // 
-            // label1
+            // metroLabel1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 71);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Nome da Rua:";
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel1.Location = new System.Drawing.Point(13, 135);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(64, 19);
+            this.metroLabel1.TabIndex = 12;
+            this.metroLabel1.Text = "Endereço";
             // 
-            // nomeRua
+            // metroComboBox3
             // 
-            this.nomeRua.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nomeRua.Location = new System.Drawing.Point(16, 94);
-            this.nomeRua.Name = "nomeRua";
-            this.nomeRua.Size = new System.Drawing.Size(212, 20);
-            this.nomeRua.TabIndex = 1;
+            this.metroComboBox3.FormattingEnabled = true;
+            this.metroComboBox3.ItemHeight = 23;
+            this.metroComboBox3.Location = new System.Drawing.Point(83, 135);
+            this.metroComboBox3.Name = "metroComboBox3";
+            this.metroComboBox3.Size = new System.Drawing.Size(205, 29);
+            this.metroComboBox3.TabIndex = 11;
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel3.Location = new System.Drawing.Point(0, 61);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(77, 19);
+            this.metroLabel3.TabIndex = 10;
+            this.metroLabel3.Text = "Beneficiario";
+            // 
+            // metroComboBox4
+            // 
+            this.metroComboBox4.FormattingEnabled = true;
+            this.metroComboBox4.ItemHeight = 23;
+            this.metroComboBox4.Location = new System.Drawing.Point(83, 61);
+            this.metroComboBox4.Name = "metroComboBox4";
+            this.metroComboBox4.Size = new System.Drawing.Size(205, 29);
+            this.metroComboBox4.TabIndex = 9;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.metroLabel2);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(288, 55);
+            this.panel5.TabIndex = 7;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel2.Location = new System.Drawing.Point(12, 21);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(126, 19);
+            this.metroLabel2.TabIndex = 8;
+            this.metroLabel2.Text = "Prencha os campos:";
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.SkyBlue;
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(0, 707);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(234, 38);
+            this.button1.Size = new System.Drawing.Size(288, 38);
             this.button1.TabIndex = 0;
             this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadasrtroToolStripMenuItem,
             this.categoriaToolStripMenuItem,
@@ -138,11 +188,25 @@
             // cadasrtroToolStripMenuItem
             // 
             this.cadasrtroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadsaToolStripMenuItem,
+            this.IncluirToolStripMenuItem,
             this.deletarToolStripMenuItem});
             this.cadasrtroToolStripMenuItem.Name = "cadasrtroToolStripMenuItem";
-            this.cadasrtroToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
-            this.cadasrtroToolStripMenuItem.Text = "Beneficiario";
+            this.cadasrtroToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.cadasrtroToolStripMenuItem.Text = "Beneficiarios";
+            // 
+            // IncluirToolStripMenuItem
+            // 
+            this.IncluirToolStripMenuItem.Name = "IncluirToolStripMenuItem";
+            this.IncluirToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.IncluirToolStripMenuItem.Text = "Incluir";
+            this.IncluirToolStripMenuItem.Click += new System.EventHandler(this.IncluirToolStripMenuItem_Click);
+            // 
+            // deletarToolStripMenuItem
+            // 
+            this.deletarToolStripMenuItem.Name = "deletarToolStripMenuItem";
+            this.deletarToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.deletarToolStripMenuItem.Text = "Remover";
+            this.deletarToolStripMenuItem.Click += new System.EventHandler(this.deletarToolStripMenuItem_Click);
             // 
             // categoriaToolStripMenuItem
             // 
@@ -169,24 +233,11 @@
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
-            // cadsaToolStripMenuItem
-            // 
-            this.cadsaToolStripMenuItem.Name = "cadsaToolStripMenuItem";
-            this.cadsaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cadsaToolStripMenuItem.Text = "Incluir";
-            this.cadsaToolStripMenuItem.Click += new System.EventHandler(this.cadsaToolStripMenuItem_Click);
-            // 
-            // deletarToolStripMenuItem
-            // 
-            this.deletarToolStripMenuItem.Name = "deletarToolStripMenuItem";
-            this.deletarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deletarToolStripMenuItem.Text = "Remover";
-            this.deletarToolStripMenuItem.Click += new System.EventHandler(this.deletarToolStripMenuItem_Click);
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1567, 769);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -198,6 +249,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -211,8 +264,6 @@
         private System.Windows.Forms.Panel panel3;
         private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox nomeRua;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem cadasrtroToolStripMenuItem;
@@ -220,7 +271,13 @@
         private System.Windows.Forms.ToolStripMenuItem cestaBasicasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entregaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadsaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem IncluirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deletarToolStripMenuItem;
+        private System.Windows.Forms.Panel panel5;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroComboBox metroComboBox3;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroComboBox metroComboBox4;
     }
 }

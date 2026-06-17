@@ -71,6 +71,12 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Beneficiarios\frmRemoverBeneficiario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Beneficiarios\frmRemoverBeneficiario.Designer.cs">
+      <DependentUpon>frmRemoverBeneficiario.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Beneficiarios\frmIncluirBeneficiario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Beneficiarios\frmRemoverBeneficiario.resx">
+      <DependentUpon>frmRemoverBeneficiario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Beneficiarios\frmIncluirBeneficiario.resx">
       <DependentUpon>frmIncluirBeneficiario.cs</DependentUpon>
     </EmbeddedResource>
