@@ -1,6 +1,6 @@
-﻿namespace EntregaPorRotas.UI
+﻿namespace EntregaPorRotas.UI.Beneficiarios
 {
-    partial class frmIncluirBeneficiario
+    partial class frmRemoverBeneficiario
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // frmIncluirBeneficiario
+            // frmDeletarBeneficiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1540, 769);
-            this.Name = "frmIncluirBeneficiario";
-            this.Text = "frmRemoverBeneficiario";
+            this.ClientSize = new System.Drawing.Size(1398, 707);
+            this.Name = "frmDeletarBeneficiario";
+            this.Text = "frmDeletarBeneficiario";
             this.ResumeLayout(false);
 
         }

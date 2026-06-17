@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntregaPorRotas.UI.Beneficiarios;
+using System;
 using System.Windows.Forms;
 
 namespace EntregaPorRotas.UI
@@ -31,23 +32,29 @@ namespace EntregaPorRotas.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            rua = nomeRua.Text;
+            //rua = nomeRua.Text;
             busca($"{search}{rua}");
         }
+
+        #region Forms
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void cadsaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void IncluirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmIncluirBeneficiario frm = new frmIncluirBeneficiario();
+            frm.ShowDialog();
         }
 
         private void deletarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmRemoverBeneficiario frm = new frmRemoverBeneficiario(); 
+            frm.ShowDialog();
         }
+
+        #endregion
     }
 }
