@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace EntregaPorRotas.repository
 {
@@ -14,21 +8,23 @@ namespace EntregaPorRotas.repository
         // lista todos de uma tabela referenciada
         public DataTable ListarTodos(string tabela)
         {
-            if (tabela == null || tabela = string.Empty) 
+            if (string.IsNullOrWhiteSpace(tabela))
             {
                 return null;
             }
 
-            SqlConnection conn = Conexao.Conectar();
-            string sql = @"SELECT * FROM @Tabela";
-            SqlCommand cmd = new SqlCommand(conn, sql);
-            cmd.Parameters.AddWithValue("@Tabela", tabela);
-            SqlDataAdapter da = new SqlDataAdapter();
+            using (SqlConnection conn = Conexao.Conectar())
+            {
+                string sql = $"SELECT * FROM [{tabela}]";
 
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            conn.Close();
-            return dt;
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    return dt;
+                }
+            }
         }
     }
 }

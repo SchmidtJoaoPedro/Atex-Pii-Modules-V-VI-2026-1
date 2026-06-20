@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 
 namespace EntregaPorRotas
 {
     internal class Conexao
     {
-        private string conexao = "DataSource=.\\SQLEXPRESS;USER=sa;PW=123";
+        private static readonly string stringConexao = "Data Source=.\\SQLEXPRESS;Initial Catalog=bancoPII;User ID=sa;Password=123;TrustServerCertificate=True";
 
         public static SqlConnection Conectar()
         {

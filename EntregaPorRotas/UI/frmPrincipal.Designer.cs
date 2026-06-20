@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
@@ -35,7 +36,7 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroComboBox3 = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBox4 = new MetroFramework.Controls.MetroComboBox();
+            this.cbBeneficiarios = new MetroFramework.Controls.MetroComboBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.button1 = new System.Windows.Forms.Button();
@@ -47,12 +48,14 @@
             this.cestaBasicasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entregaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bdBeneficiarios = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdBeneficiarios)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -91,7 +94,7 @@
             this.panel2.Controls.Add(this.metroLabel1);
             this.panel2.Controls.Add(this.metroComboBox3);
             this.panel2.Controls.Add(this.metroLabel3);
-            this.panel2.Controls.Add(this.metroComboBox4);
+            this.panel2.Controls.Add(this.cbBeneficiarios);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -129,14 +132,15 @@
             this.metroLabel3.TabIndex = 10;
             this.metroLabel3.Text = "Beneficiario";
             // 
-            // metroComboBox4
+            // cbBeneficiarios
             // 
-            this.metroComboBox4.FormattingEnabled = true;
-            this.metroComboBox4.ItemHeight = 23;
-            this.metroComboBox4.Location = new System.Drawing.Point(83, 61);
-            this.metroComboBox4.Name = "metroComboBox4";
-            this.metroComboBox4.Size = new System.Drawing.Size(205, 29);
-            this.metroComboBox4.TabIndex = 9;
+            this.cbBeneficiarios.DataSource = this.bdBeneficiarios;
+            this.cbBeneficiarios.FormattingEnabled = true;
+            this.cbBeneficiarios.ItemHeight = 23;
+            this.cbBeneficiarios.Location = new System.Drawing.Point(83, 61);
+            this.cbBeneficiarios.Name = "cbBeneficiarios";
+            this.cbBeneficiarios.Size = new System.Drawing.Size(205, 29);
+            this.cbBeneficiarios.TabIndex = 9;
             // 
             // panel5
             // 
@@ -253,6 +257,7 @@
             this.panel5.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdBeneficiarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,6 +283,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroComboBox metroComboBox3;
         private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroComboBox metroComboBox4;
+        private MetroFramework.Controls.MetroComboBox cbBeneficiarios;
+        private System.Windows.Forms.BindingSource bdBeneficiarios;
     }
 }
