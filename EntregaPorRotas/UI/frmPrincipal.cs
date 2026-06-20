@@ -1,4 +1,5 @@
-﻿using EntregaPorRotas.UI.Beneficiarios;
+﻿using EntregaPorRotas.repository;
+using EntregaPorRotas.UI.Beneficiarios;
 using System;
 using System.Windows.Forms;
 
@@ -16,6 +17,17 @@ namespace EntregaPorRotas.UI
         private string search = "search/";
         private string PLACE = "Universidade+Prof.Edson+Antônio+Velano+-+Unifenas+-+Câmpus+Alfenas";
 
+        private async void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            busca($"{search}{PLACE}");
+
+            BeneficiarioRepository repository = new BeneficiarioRepository();
+
+            bdBeneficiarios.DataSource = repository.ObterTodos();
+            cbBeneficiarios.DisplayMember = "NomeBeneficiario";
+            cbBeneficiarios.ValueMember = "CodigoBeneficiario";
+        }
+
         private async void busca(string add)
         {
             await webView21.EnsureCoreWebView2Async();
@@ -23,11 +35,6 @@ namespace EntregaPorRotas.UI
             webView21.CoreWebView2.Navigate(
                 URL + add
             );
-        }
-
-        private async void frmPrincipal_Load(object sender, EventArgs e)
-        {
-            busca($"{search}{PLACE}");
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -28,19 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.SuspendLayout();
+            // 
+            // metroTextBox1
+            // 
+            this.metroTextBox1.Location = new System.Drawing.Point(12, 108);
+            this.metroTextBox1.Name = "metroTextBox1";
+            this.metroTextBox1.Size = new System.Drawing.Size(259, 23);
+            this.metroTextBox1.TabIndex = 0;
+            this.metroTextBox1.Text = "metroTextBox1";
             // 
             // frmIncluirBeneficiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1540, 769);
+            this.Controls.Add(this.metroTextBox1);
             this.Name = "frmIncluirBeneficiario";
-            this.Text = "frmRemoverBeneficiario";
+            this.Text = "Incluir Beneficiario";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private MetroFramework.Controls.MetroTextBox metroTextBox1;
     }
 }

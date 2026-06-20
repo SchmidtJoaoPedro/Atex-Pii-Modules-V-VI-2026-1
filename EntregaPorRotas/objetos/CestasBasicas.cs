@@ -14,6 +14,6 @@ namespace EntregaPorRotas.objetos
 
         public int CodigoCesta { get => codigoCesta; set => codigoCesta = value; }
         public int CodigoCategoria { get => codigoCategoria; set => codigoCategoria = value; }
-        public int Quantidade { get => quantidade; set { (value > 0) ? quantidade = value; : quantidade = 0; } }
+        public int Quantidade { get => quantidade; set { quantidade = (value > 0) ? value : 0; } }
     }
 }
