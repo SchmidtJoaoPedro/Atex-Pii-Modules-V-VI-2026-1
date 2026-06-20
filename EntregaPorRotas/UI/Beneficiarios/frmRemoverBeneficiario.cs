@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace EntregaPorRotas.UI.Beneficiarios
 {
-    public partial class frmRemoverBeneficiario : Form
+    public partial class frmRemoverBpeneficiario : Form
     {
-        public frmRemoverBeneficiario()
+        public frmRemoverBpeneficiario()
         {
             InitializeComponent();
         }

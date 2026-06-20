@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 
 namespace EntregaPorRotas.repository
 {
+    // repositório geral
     internal class Repository
     {
         // lista todos de uma tabela referenciada

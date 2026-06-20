@@ -33,7 +33,7 @@
             // 
             // metroTextBox1
             // 
-            this.metroTextBox1.Location = new System.Drawing.Point(12, 108);
+            this.metroTextBox1.Location = new System.Drawing.Point(12, 116);
             this.metroTextBox1.Name = "metroTextBox1";
             this.metroTextBox1.Size = new System.Drawing.Size(259, 23);
             this.metroTextBox1.TabIndex = 0;
@@ -46,7 +46,7 @@
             this.ClientSize = new System.Drawing.Size(1540, 769);
             this.Controls.Add(this.metroTextBox1);
             this.Name = "frmIncluirBeneficiario";
-            this.Text = "Incluir Beneficiario";
+            this.Text = "Beneficiario -> Incluir";
             this.ResumeLayout(false);
 
         }
