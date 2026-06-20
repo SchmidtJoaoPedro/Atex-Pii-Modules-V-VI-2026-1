@@ -12,10 +12,10 @@ namespace EntregaPorRotas.UI
             InitializeComponent();
         }
 
-        private string rua;
-        private string URL = "https://www.google.com/maps/";
-        private string search = "search/";
-        private string PLACE = "Universidade+Prof.Edson+Antônio+Velano+-+Unifenas+-+Câmpus+Alfenas";
+        private readonly string rua;
+        private readonly string URL = "https://www.google.com/maps/";
+        private readonly string search = "search/";
+        private readonly string PLACE = "Computação+Unifenas";
 
         private async void frmPrincipal_Load(object sender, EventArgs e)
         {
@@ -42,7 +42,6 @@ namespace EntregaPorRotas.UI
             //rua = nomeRua.Text;
             busca($"{search}{rua}");
         }
-
         #region Forms
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
@@ -58,7 +57,7 @@ namespace EntregaPorRotas.UI
 
         private void deletarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmRemoverBeneficiario frm = new frmRemoverBeneficiario(); 
+            frmRemoverBpeneficiario frm = new frmRemoverBpeneficiario(); 
             frm.ShowDialog();
         }
 
