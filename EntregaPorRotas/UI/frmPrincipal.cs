@@ -1,5 +1,7 @@
-﻿using EntregaPorRotas.repository;
+﻿using EntregaPorRotas.backend;
+using EntregaPorRotas.repository;
 using EntregaPorRotas.UI.Beneficiarios;
+using EntregaPorRotas.UI.Categorias;
 using System;
 using System.Windows.Forms;
 
@@ -21,28 +23,48 @@ namespace EntregaPorRotas.UI
         {
             busca($"{search}{PLACE}");
 
+            CarregarBeneficiarios();
+        }
+
+        private void CarregarBeneficiarios()
+        {
             BeneficiarioRepository repository = new BeneficiarioRepository();
 
+            bdBeneficiarios.DataSource = null;
             bdBeneficiarios.DataSource = repository.ObterTodos();
+
             cbBeneficiarios.DisplayMember = "NomeBeneficiario";
             cbBeneficiarios.ValueMember = "CodigoBeneficiario";
         }
 
+        // Monta a URL de busca e navega para o endereço
         private async void busca(string add)
         {
             await webView21.EnsureCoreWebView2Async();
-
-            webView21.CoreWebView2.Navigate(
-                URL + add
-            );
+            webView21.CoreWebView2.Navigate(URL + add);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            //rua = nomeRua.Text;
-            busca($"{search}{rua}");
+            if (string.IsNullOrEmpty(txtEndereco.Text))
+            {
+                busca($"{search}{rua}");
+            }
+            else
+            {
+                busca($"{search}{txtEndereco.Text}");
+            }
         }
-        #region Forms
+
+        private void cbBeneficiarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbBeneficiarios.SelectedItem is Beneficiario beneficiario)
+            {
+                txtEndereco.Text = beneficiario.Endereco;
+            }
+        }
+
+        #region Formularios
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -51,13 +73,14 @@ namespace EntregaPorRotas.UI
 
         private void IncluirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmIncluirBeneficiario frm = new frmIncluirBeneficiario();
+            frmBeneficiario frm = new frmBeneficiario();
             frm.ShowDialog();
+            CarregarBeneficiarios();
         }
 
-        private void deletarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void consultaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmRemoverBpeneficiario frm = new frmRemoverBpeneficiario(); 
+            frmConsultaBeneficiario frm = new frmConsultaBeneficiario();
             frm.ShowDialog();
         }
 
