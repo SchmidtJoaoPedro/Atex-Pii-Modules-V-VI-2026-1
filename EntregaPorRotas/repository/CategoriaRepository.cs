@@ -54,14 +54,5 @@ namespace EntregaPorRotas.repository
                 }
             }
         }
-
-        public void Delete(int id)
-        {
-            if (id <= 0) return;
-
-            SqlCommand cmd = new SqlCommand(@"DELETE FROM Categoria WHERE codigoCategoria = @A;", this.conn);
-            cmd.Parameters.AddWithValue("@A", id);
-            cmd.ExecuteNonQuery();
-        }
     }
 }
