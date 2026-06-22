@@ -1,6 +1,6 @@
-﻿namespace EntregaPorRotas.UI.Categorias
+﻿namespace EntregaPorRotas.UI.CestasBasicas
 {
-    partial class frmCategoria
+    partial class frmCestaBasica
     {
         /// <summary>
         /// Required designer variable.
@@ -29,41 +29,64 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.cbBeneficiarios = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.txtDescricao = new MetroFramework.Controls.MetroTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.numericUpDown1);
+            this.panel1.Controls.Add(this.metroLabel2);
+            this.panel1.Controls.Add(this.cbBeneficiarios);
             this.panel1.Controls.Add(this.metroLabel1);
-            this.panel1.Controls.Add(this.txtDescricao);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(309, 241);
-            this.panel1.TabIndex = 1;
+            this.panel1.TabIndex = 3;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(12, 85);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(52, 20);
+            this.numericUpDown1.TabIndex = 13;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(12, 9);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(70, 19);
+            this.metroLabel2.TabIndex = 11;
+            this.metroLabel2.Text = "Categoria:";
+            // 
+            // cbBeneficiarios
+            // 
+            this.cbBeneficiarios.FormattingEnabled = true;
+            this.cbBeneficiarios.ItemHeight = 23;
+            this.cbBeneficiarios.Location = new System.Drawing.Point(12, 31);
+            this.cbBeneficiarios.Name = "cbBeneficiarios";
+            this.cbBeneficiarios.Size = new System.Drawing.Size(285, 29);
+            this.cbBeneficiarios.TabIndex = 10;
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(12, 9);
+            this.metroLabel1.Location = new System.Drawing.Point(12, 63);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(108, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(81, 19);
             this.metroLabel1.TabIndex = 2;
-            this.metroLabel1.Text = "Nome categoria:";
-            // 
-            // txtDescricao
-            // 
-            this.txtDescricao.Location = new System.Drawing.Point(12, 31);
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(285, 23);
-            this.txtDescricao.TabIndex = 1;
+            this.metroLabel1.Text = "Quantidade:";
             // 
             // tableLayoutPanel1
             // 
@@ -92,7 +115,6 @@
             this.btnCancelar.TabIndex = 0;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSalvar
             // 
@@ -105,20 +127,20 @@
             this.btnSalvar.TabIndex = 1;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // frmCategoria
+            // frmCestaBasica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(309, 241);
             this.Controls.Add(this.panel1);
-            this.Name = "frmCategoria";
+            this.Name = "frmCestaBasica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Incluir Categoria";
+            this.Text = "Inserir Cesta Basica";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -127,8 +149,10 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroComboBox cbBeneficiarios;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroTextBox txtDescricao;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalvar;

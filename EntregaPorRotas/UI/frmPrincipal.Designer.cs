@@ -33,6 +33,12 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtCodCesta = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.txtDataEntrega = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.txtCategoria = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.txtEndereco = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -49,14 +55,12 @@
             this.incluirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cestaBasicasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inserirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.entregaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inserirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultaToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.txtCategoria = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.txtDataEntrega = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
-            this.txtCodCesta = new MetroFramework.Controls.MetroTextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
@@ -116,6 +120,60 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(288, 745);
             this.panel2.TabIndex = 2;
+            // 
+            // txtCodCesta
+            // 
+            this.txtCodCesta.Location = new System.Drawing.Point(12, 296);
+            this.txtCodCesta.Name = "txtCodCesta";
+            this.txtCodCesta.ReadOnly = true;
+            this.txtCodCesta.Size = new System.Drawing.Size(270, 29);
+            this.txtCodCesta.TabIndex = 19;
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel6.Location = new System.Drawing.Point(12, 274);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(111, 19);
+            this.metroLabel6.TabIndex = 18;
+            this.metroLabel6.Text = "Codigo da Cesta:";
+            // 
+            // txtDataEntrega
+            // 
+            this.txtDataEntrega.Location = new System.Drawing.Point(12, 188);
+            this.txtDataEntrega.Name = "txtDataEntrega";
+            this.txtDataEntrega.ReadOnly = true;
+            this.txtDataEntrega.Size = new System.Drawing.Size(270, 29);
+            this.txtDataEntrega.TabIndex = 17;
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel5.Location = new System.Drawing.Point(12, 166);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(88, 19);
+            this.metroLabel5.TabIndex = 16;
+            this.metroLabel5.Text = "Data Entrega:";
+            // 
+            // txtCategoria
+            // 
+            this.txtCategoria.Location = new System.Drawing.Point(12, 242);
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.ReadOnly = true;
+            this.txtCategoria.Size = new System.Drawing.Size(270, 29);
+            this.txtCategoria.TabIndex = 15;
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel4.Location = new System.Drawing.Point(12, 220);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(70, 19);
+            this.metroLabel4.TabIndex = 14;
+            this.metroLabel4.Text = "Categoria:";
             // 
             // txtEndereco
             // 
@@ -251,15 +309,49 @@
             // 
             // cestaBasicasToolStripMenuItem
             // 
+            this.cestaBasicasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inserirToolStripMenuItem,
+            this.consultaToolStripMenuItem2});
             this.cestaBasicasToolStripMenuItem.Name = "cestaBasicasToolStripMenuItem";
             this.cestaBasicasToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.cestaBasicasToolStripMenuItem.Text = "Cesta basicas";
             // 
+            // inserirToolStripMenuItem
+            // 
+            this.inserirToolStripMenuItem.Name = "inserirToolStripMenuItem";
+            this.inserirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inserirToolStripMenuItem.Text = "Inserir";
+            this.inserirToolStripMenuItem.Click += new System.EventHandler(this.inserirToolStripMenuItem_Click);
+            // 
+            // consultaToolStripMenuItem2
+            // 
+            this.consultaToolStripMenuItem2.Name = "consultaToolStripMenuItem2";
+            this.consultaToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.consultaToolStripMenuItem2.Text = "Consulta";
+            this.consultaToolStripMenuItem2.Click += new System.EventHandler(this.consultaToolStripMenuItem2_Click);
+            // 
             // entregaToolStripMenuItem
             // 
+            this.entregaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inserirToolStripMenuItem1,
+            this.consultaToolStripMenuItem3});
             this.entregaToolStripMenuItem.Name = "entregaToolStripMenuItem";
             this.entregaToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.entregaToolStripMenuItem.Text = "Entrega";
+            // 
+            // inserirToolStripMenuItem1
+            // 
+            this.inserirToolStripMenuItem1.Name = "inserirToolStripMenuItem1";
+            this.inserirToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.inserirToolStripMenuItem1.Text = "Inserir";
+            this.inserirToolStripMenuItem1.Click += new System.EventHandler(this.inserirToolStripMenuItem1_Click);
+            // 
+            // consultaToolStripMenuItem3
+            // 
+            this.consultaToolStripMenuItem3.Name = "consultaToolStripMenuItem3";
+            this.consultaToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.consultaToolStripMenuItem3.Text = "Consulta";
+            this.consultaToolStripMenuItem3.Click += new System.EventHandler(this.consultaToolStripMenuItem3_Click);
             // 
             // sairToolStripMenuItem
             // 
@@ -267,60 +359,6 @@
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
-            // 
-            // metroLabel4
-            // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel4.Location = new System.Drawing.Point(12, 220);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(70, 19);
-            this.metroLabel4.TabIndex = 14;
-            this.metroLabel4.Text = "Categoria:";
-            // 
-            // txtCategoria
-            // 
-            this.txtCategoria.Location = new System.Drawing.Point(12, 242);
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.ReadOnly = true;
-            this.txtCategoria.Size = new System.Drawing.Size(270, 29);
-            this.txtCategoria.TabIndex = 15;
-            // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel5.Location = new System.Drawing.Point(12, 166);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(88, 19);
-            this.metroLabel5.TabIndex = 16;
-            this.metroLabel5.Text = "Data Entrega:";
-            // 
-            // txtDataEntrega
-            // 
-            this.txtDataEntrega.Location = new System.Drawing.Point(12, 188);
-            this.txtDataEntrega.Name = "txtDataEntrega";
-            this.txtDataEntrega.ReadOnly = true;
-            this.txtDataEntrega.Size = new System.Drawing.Size(270, 29);
-            this.txtDataEntrega.TabIndex = 17;
-            // 
-            // metroLabel6
-            // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel6.Location = new System.Drawing.Point(12, 274);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(111, 19);
-            this.metroLabel6.TabIndex = 18;
-            this.metroLabel6.Text = "Codigo da Cesta:";
-            // 
-            // txtCodCesta
-            // 
-            this.txtCodCesta.Location = new System.Drawing.Point(12, 296);
-            this.txtCodCesta.Name = "txtCodCesta";
-            this.txtCodCesta.ReadOnly = true;
-            this.txtCodCesta.Size = new System.Drawing.Size(270, 29);
-            this.txtCodCesta.TabIndex = 19;
             // 
             // frmPrincipal
             // 
@@ -378,5 +416,9 @@
         private MetroFramework.Controls.MetroTextBox txtDataEntrega;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroTextBox txtCategoria;
+        private System.Windows.Forms.ToolStripMenuItem inserirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem inserirToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem3;
     }
 }
