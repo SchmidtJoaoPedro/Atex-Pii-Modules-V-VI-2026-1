@@ -1,14 +1,14 @@
 # Banco de Dados
 
-Antes de executar o sistema, crie o banco de dados **PII** no SQL Server e execute os scripts abaixo para criar as tabelas necessárias.
+Antes de executar o sistema, crie o banco de dados **bancoPII** no SQL Server e execute os scripts abaixo para criar as tabelas necessárias.
 
 ## Criação do Banco
 
 ```sql
-CREATE DATABASE PII;
+CREATE DATABASE bancoPII;
 GO
 
-USE PII;
+USE bancoPII;
 GO
 ```
 
