@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EntregaPorRotas.backend;
+using System;
 using System.Windows.Forms;
 
 namespace EntregaPorRotas.UI.CestasBasicas
@@ -15,6 +9,14 @@ namespace EntregaPorRotas.UI.CestasBasicas
         public frmConsultaCestaBasica()
         {
             InitializeComponent();
+        }
+
+        private void frmConsultaCestaBasica_Load(object sender, EventArgs e)
+        {
+            CestaBasicaRepository repository = new CestaBasicaRepository();
+
+            gridCestaBasica.AutoGenerateColumns = true;
+            bdCestaBasica.DataSource = repository.ObterTodos();
         }
     }
 }

@@ -58,7 +58,7 @@
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(12, 85);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(52, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(285, 20);
             this.numericUpDown1.TabIndex = 13;
             // 
             // metroLabel2
@@ -78,6 +78,7 @@
             this.cbBeneficiarios.Name = "cbBeneficiarios";
             this.cbBeneficiarios.Size = new System.Drawing.Size(285, 29);
             this.cbBeneficiarios.TabIndex = 10;
+            this.cbBeneficiarios.SelectedIndexChanged += new System.EventHandler(this.cbBeneficiarios_SelectedIndexChanged);
             // 
             // metroLabel1
             // 
