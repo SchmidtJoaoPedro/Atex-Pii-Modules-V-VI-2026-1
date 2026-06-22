@@ -108,9 +108,9 @@ VALUES
 
 INSERT INTO Entrega (codigoCesta, codigoBeneficiario, dataEntrega)
 VALUES
-(1, 1, GETDATE()),
-(2, 2, GETDATE()),
-(3, 3, GETDATE());
+(1, 1, '2026-06-10'),
+(2, 2, '2026-06-15'),
+(3, 3, '2026-06-20');
 ```
 
 ## Observações
