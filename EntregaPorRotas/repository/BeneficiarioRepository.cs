@@ -15,11 +15,12 @@ namespace EntregaPorRotas.repository
 
             using (SqlConnection conn = Conexao.Conectar())
             {
-                string sql = @"SELECT
-                                codigoBeneficiario,
-                                nomeBeneficiario,
-                                endereco
-                               FROM Beneficiario";
+                string sql = @"
+                                SELECT
+                                    codigoBeneficiario,
+                                    nomeBeneficiario,
+                                    endereco
+                                FROM Beneficiario";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -38,6 +39,25 @@ namespace EntregaPorRotas.repository
             }
 
             return lista;
+        }
+
+        public void Inserir(Beneficiario beneficiario)
+        {
+            using (SqlConnection conn = Conexao.Conectar())
+            using (var cmd = new SqlCommand())
+            {
+                cmd.Connection = conn;
+                cmd.CommandText = @"
+                                    INSERT INTO Beneficiario
+                                    (NomeBeneficiario,Endereco)
+                                    VALUES
+                                    (@NomeBeneficiario,@Endereco)";
+
+                cmd.Parameters.AddWithValue("@NomeBeneficiario", beneficiario.NomeBeneficiario);
+                cmd.Parameters.AddWithValue("@Endereco", beneficiario.Endereco);
+
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }
