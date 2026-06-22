@@ -16,5 +16,10 @@ namespace EntregaPorRotas.UI.CestasBasicas
         {
             InitializeComponent();
         }
+
+        private void cbBeneficiarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
