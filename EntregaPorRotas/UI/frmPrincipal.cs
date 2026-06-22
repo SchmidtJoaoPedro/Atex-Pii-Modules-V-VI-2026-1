@@ -1,4 +1,5 @@
 ﻿using EntregaPorRotas.backend;
+using EntregaPorRotas.objetos;
 using EntregaPorRotas.repository;
 using EntregaPorRotas.UI.Beneficiarios;
 using EntregaPorRotas.UI.Categorias;
@@ -23,18 +24,62 @@ namespace EntregaPorRotas.UI
         {
             busca($"{search}{PLACE}");
 
-            CarregarBeneficiarios();
+            CarregarCampos();
         }
 
-        private void CarregarBeneficiarios()
+        private void CarregarCampos()
         {
-            BeneficiarioRepository repository = new BeneficiarioRepository();
+            BeneficiarioRepository beneficiarioRepository = new BeneficiarioRepository();
 
             bdBeneficiarios.DataSource = null;
-            bdBeneficiarios.DataSource = repository.ObterTodos();
+            bdBeneficiarios.DataSource = beneficiarioRepository.ObterTodos();
 
             cbBeneficiarios.DisplayMember = "NomeBeneficiario";
             cbBeneficiarios.ValueMember = "CodigoBeneficiario";
+
+            CarregarDadosBeneficiario();
+        }
+
+        private void CarregarDadosBeneficiario()
+        {
+            if (!(cbBeneficiarios.SelectedItem is Beneficiario beneficiario))
+                return;
+
+            txtEndereco.Text = beneficiario.Endereco;
+
+            EntregaRepository entregaRepository = new EntregaRepository();
+            Entrega entrega = entregaRepository.ObterPorBeneficiario(beneficiario.CodigoBeneficiario);
+
+            if (entrega == null)
+            {
+                txtDataEntrega.Clear();
+                txtCodCesta.Clear();
+                txtCategoria.Clear();
+                return;
+            }
+
+            CestasBasicasRepository cestaRepository = new CestasBasicasRepository();
+            CestasBasicas cesta = cestaRepository.ObterPorId(entrega.CodigoCesta);
+
+            if (cesta == null)
+            {
+                txtDataEntrega.Clear();
+                txtCodCesta.Clear();
+                txtCategoria.Clear();
+                return;
+            }
+
+            CategoriaRepository categoriaRepository = new CategoriaRepository();
+            Categoria categoria = categoriaRepository.ObterPorId(cesta.CodigoCategoria);
+
+            txtDataEntrega.Text = entrega.DataEntrega;
+            txtCodCesta.Text = cesta.CodigoCesta.ToString();
+            txtCategoria.Text = categoria?.Descricao ?? "";
+        }
+
+        private void cbBeneficiarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CarregarDadosBeneficiario();
         }
 
         // Monta a URL de busca e navega para o endereço
@@ -56,14 +101,6 @@ namespace EntregaPorRotas.UI
             }
         }
 
-        private void cbBeneficiarios_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbBeneficiarios.SelectedItem is Beneficiario beneficiario)
-            {
-                txtEndereco.Text = beneficiario.Endereco;
-            }
-        }
-
         #region Formularios
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,7 +113,7 @@ namespace EntregaPorRotas.UI
         {
             frmBeneficiario frm = new frmBeneficiario();
             frm.ShowDialog();
-            CarregarBeneficiarios();
+            CarregarCampos();
         }
 
         private void consultaToolStripMenuItem_Click(object sender, EventArgs e)

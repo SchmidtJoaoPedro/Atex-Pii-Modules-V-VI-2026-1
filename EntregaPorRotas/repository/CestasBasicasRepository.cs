@@ -6,25 +6,132 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntregaPorRotas.repository
+namespace EntregaPorRotas.backend
 {
     internal class CestasBasicasRepository
     {
-        private readonly SqlConnection conn = Conexao.Conectar();
-        public void Insert(CestasBasicas b)
+        public List<CestasBasicas> ObterTodos()
         {
-            SqlCommand cmd = new SqlCommand(@"INSERT INTO CestasBasicas(codigoCategoria, quantidade) VALUES(@A, @B);", this.conn);
-            cmd.Parameters.AddWithValue("@A", b.CodigoCategoria);
-            cmd.Parameters.AddWithValue("@B", b.Quantidade);
-            cmd.ExecuteNonQuery();
-        }
-        public void Delete(int id)
-        {
-            if (id <= 0) return;
+            List<CestasBasicas> lista = new List<CestasBasicas>();
 
-            SqlCommand cmd = new SqlCommand(@"DELETE FROM CestasBasicas WHERE codigoCesta = @A;", this.conn);
-            cmd.Parameters.AddWithValue("@A", id);
-            cmd.ExecuteNonQuery();
+            using (SqlConnection conn = Conexao.Conectar())
+            {
+                string sql = @"
+                                SELECT
+                                    codigoCesta,
+                                    codigoCategoria,
+                                    quantidade
+                                FROM CestasBasicas";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        CestasBasicas cesta = new CestasBasicas();
+
+                        cesta.CodigoCesta = Convert.ToInt32(reader["codigoCesta"]);
+                        cesta.CodigoCategoria = Convert.ToInt32(reader["codigoCategoria"]);
+                        cesta.Quantidade = Convert.ToInt32(reader["quantidade"]);
+
+                        lista.Add(cesta);
+                    }
+                }
+            }
+
+            return lista;
+        }
+
+        public CestasBasicas ObterPorId(int codigoCesta)
+        {
+            using (SqlConnection conn = Conexao.Conectar())
+            {
+                string sql = @"
+                                SELECT
+                                    codigoCesta,
+                                    codigoCategoria,
+                                    quantidade
+                                FROM CestasBasicas
+                                WHERE codigoCesta = @codigoCesta";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@codigoCesta", codigoCesta);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            CestasBasicas cesta = new CestasBasicas();
+
+                            cesta.CodigoCesta = Convert.ToInt32(reader["codigoCesta"]);
+                            cesta.CodigoCategoria = Convert.ToInt32(reader["codigoCategoria"]);
+                            cesta.Quantidade = Convert.ToInt32(reader["quantidade"]);
+
+                            return cesta;
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        public List<CestasBasicas> ObterPorCategoria(int codigoCategoria)
+        {
+            List<CestasBasicas> lista = new List<CestasBasicas>();
+
+            using (SqlConnection conn = Conexao.Conectar())
+            {
+                string sql = @"
+                                SELECT
+                                    codigoCesta,
+                                    codigoCategoria,
+                                    quantidade
+                                FROM CestasBasicas
+                                WHERE codigoCategoria = @codigoCategoria";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@codigoCategoria", codigoCategoria);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            CestasBasicas cesta = new CestasBasicas();
+
+                            cesta.CodigoCesta = Convert.ToInt32(reader["codigoCesta"]);
+                            cesta.CodigoCategoria = Convert.ToInt32(reader["codigoCategoria"]);
+                            cesta.Quantidade = Convert.ToInt32(reader["quantidade"]);
+
+                            lista.Add(cesta);
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
+
+        public void Inserir(CestasBasicas cesta)
+        {
+            using (SqlConnection conn = Conexao.Conectar())
+            {
+                string sql = @"
+                                INSERT INTO CestasBasicas
+                                (codigoCategoria,quantidade)
+                                VALUES
+                                (@codigoCategoria,@quantidade)";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@codigoCategoria", cesta.CodigoCategoria);
+                    cmd.Parameters.AddWithValue("@quantidade", cesta.Quantidade);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

@@ -36,6 +36,39 @@ namespace EntregaPorRotas.repository
             return lista;
         }
 
+        public Categoria ObterPorId(int codigoCategoria)
+        {
+            using (SqlConnection conn = Conexao.Conectar())
+            {
+                string sql = @"
+                                SELECT
+                                    codigoCategoria,
+                                    descricao
+                                FROM Categoria
+                                WHERE codigoCategoria = @codigoCategoria";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@codigoCategoria", codigoCategoria);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Categoria categoria = new Categoria();
+
+                            categoria.CodigoCategoria = Convert.ToInt32(reader["codigoCategoria"]);
+                            categoria.Descricao = reader["descricao"].ToString();
+
+                            return categoria;
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
+
         public void Inserir(Categoria categoria)
         {
             using (SqlConnection conn = Conexao.Conectar())
