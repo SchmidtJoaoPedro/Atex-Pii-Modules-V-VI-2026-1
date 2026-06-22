@@ -2,21 +2,59 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EntregaPorRotas.repository
 {
     internal class CategoriaRepository 
     {
-        private readonly SqlConnection conn = Conexao.Conectar();
-        public void Insert(Categoria b)
+        public List<Categoria> ObterTodos()
         {
-            SqlCommand cmd = new SqlCommand(@"INSERT INTO Categoria(descricao) VALUES(@A);", this.conn);
-            cmd.Parameters.AddWithValue("@A", b.Descricao);
-            cmd.ExecuteNonQuery();
+            List<Categoria> lista = new List<Categoria>();
+
+            using (SqlConnection conn = Conexao.Conectar())
+            {
+                string sql = @"
+                                SELECT
+                                    codigoCategoria,
+                                    descricao
+                                FROM Categoria";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Categoria categoria = new Categoria();
+
+                        categoria.CodigoCategoria = Convert.ToInt32(reader["codigoCategoria"]);
+                        categoria.Descricao = reader["descricao"].ToString();
+
+                        lista.Add(categoria);
+                    }
+                }
+            }
+            return lista;
         }
+
+        public void Inserir(Categoria categoria)
+        {
+            using (SqlConnection conn = Conexao.Conectar())
+            {
+                string sql = @"
+                                INSERT INTO Categoria
+                                (descricao)
+                                VALUES
+                                (@descricao)";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@descricao", categoria.Descricao);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         public void Delete(int id)
         {
             if (id <= 0) return;

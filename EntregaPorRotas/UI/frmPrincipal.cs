@@ -71,6 +71,7 @@ namespace EntregaPorRotas.UI
             Close();
         }
 
+        // Beneficiario
         private void IncluirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmBeneficiario frm = new frmBeneficiario();
@@ -81,6 +82,19 @@ namespace EntregaPorRotas.UI
         private void consultaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmConsultaBeneficiario frm = new frmConsultaBeneficiario();
+            frm.ShowDialog();
+        }
+
+        // Categoria
+        private void incluirToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmCategoria frm = new frmCategoria();
+            frm.ShowDialog();
+        }
+
+        private void consultaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmConsultaCategoria frm = new frmConsultaCategoria();
             frm.ShowDialog();
         }
 

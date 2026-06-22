@@ -43,7 +43,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1398, 707);
+            this.panel1.Size = new System.Drawing.Size(1484, 761);
             this.panel1.TabIndex = 1;
             // 
             // gridBeneficiarios
@@ -55,17 +55,18 @@
             this.gridBeneficiarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridBeneficiarios.Location = new System.Drawing.Point(0, 0);
             this.gridBeneficiarios.Name = "gridBeneficiarios";
-            this.gridBeneficiarios.Size = new System.Drawing.Size(1398, 707);
+            this.gridBeneficiarios.Size = new System.Drawing.Size(1484, 761);
             this.gridBeneficiarios.TabIndex = 1;
             // 
             // frmConsultaBeneficiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1398, 707);
+            this.ClientSize = new System.Drawing.Size(1484, 761);
             this.Controls.Add(this.panel1);
             this.Name = "frmConsultaBeneficiario";
-            this.Text = "Beneficiario -> Remover";
+            this.Text = "Consulta Beneficiario";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmRemoverBeneficiario_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridBeneficiarios)).EndInit();

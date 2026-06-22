@@ -93,17 +93,17 @@
     <Compile Include="UI\Beneficiarios\frmBeneficiario.Designer.cs">
       <DependentUpon>frmBeneficiario.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Categorias\frmIncluirCategoria.cs">
+    <Compile Include="UI\Categorias\frmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Categorias\frmIncluirCategoria.Designer.cs">
-      <DependentUpon>frmIncluirCategoria.cs</DependentUpon>
+    <Compile Include="UI\Categorias\frmCategoria.Designer.cs">
+      <DependentUpon>frmCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Categorias\frmRemoverCategoria.cs">
+    <Compile Include="UI\Categorias\frmConsultaCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Categorias\frmRemoverCategoria.Designer.cs">
-      <DependentUpon>frmRemoverCategoria.cs</DependentUpon>
+    <Compile Include="UI\Categorias\frmConsultaCategoria.Designer.cs">
+      <DependentUpon>frmConsultaCategoria.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -125,6 +125,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Beneficiarios\frmBeneficiario.resx">
       <DependentUpon>frmBeneficiario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Categorias\frmCategoria.resx">
+      <DependentUpon>frmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Categorias\frmConsultaCategoria.resx">
+      <DependentUpon>frmConsultaCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
