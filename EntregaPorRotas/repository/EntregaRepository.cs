@@ -1,31 +1,119 @@
-﻿using EntregaPorRotas.objetos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using EntregaPorRotas.objetos;
 
-namespace EntregaPorRotas.repository
+namespace EntregaPorRotas.backend
 {
     internal class EntregaRepository
     {
-        private readonly SqlConnection conn = Conexao.Conectar();
-        public void Insert(Entrega b)
+        public List<Entrega> ObterTodos()
         {
-            SqlCommand cmd = new SqlCommand(@"INSERT INTO Entrega(codigoCesta, codigoBeneficiario, dataEntrega) VALUES(@A, @B, @C);", this.conn);
-            cmd.Parameters.AddWithValue("@A", b.CodigoCesta);
-            cmd.Parameters.AddWithValue("@B", b.CodigoBeneficiario);
-            cmd.Parameters.AddWithValue("@C", b.DataEntrega);
-            cmd.ExecuteNonQuery();
-        }
-        public void Delete(int id)
-        {
-            if (id <= 0) return;
+            List<Entrega> lista = new List<Entrega>();
 
-            SqlCommand cmd = new SqlCommand(@"DELETE FROM Entrega WHERE codigoEntrega = @A;", this.conn);
-            cmd.Parameters.AddWithValue("@A", id);
-            cmd.ExecuteNonQuery();
+            using (SqlConnection conn = Conexao.Conectar())
+            {
+                string sql = @"
+                                SELECT
+                                    codigoEntrega,
+                                    codigoCesta,
+                                    codigoBeneficiario,
+                                    dataEntrega
+                                FROM Entrega";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Entrega entrega = new Entrega();
+
+                        entrega.CodigoEntrega = Convert.ToInt32(reader["codigoEntrega"]);
+                        entrega.CodigoCesta = Convert.ToInt32(reader["codigoCesta"]);
+                        entrega.CodigoBeneficiario = Convert.ToInt32(reader["codigoBeneficiario"]);
+                        entrega.DataEntrega = Convert.ToDateTime(reader["dataEntrega"]).ToString("dd/MM/yyyy");
+
+                        lista.Add(entrega);
+                    }
+                }
+            }
+
+            return lista;
+        }
+
+        public Entrega ObterPorId(int codigoEntrega)
+        {
+            using (SqlConnection conn = Conexao.Conectar())
+            {
+                string sql = @"
+                                SELECT
+                                    codigoEntrega,
+                                    codigoCesta,
+                                    codigoBeneficiario,
+                                    dataEntrega
+                                FROM Entrega
+                                WHERE codigoEntrega = @codigoEntrega";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@codigoEntrega", codigoEntrega);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Entrega entrega = new Entrega();
+
+                            entrega.CodigoEntrega = Convert.ToInt32(reader["codigoEntrega"]);
+                            entrega.CodigoCesta = Convert.ToInt32(reader["codigoCesta"]);
+                            entrega.CodigoBeneficiario = Convert.ToInt32(reader["codigoBeneficiario"]);
+                            entrega.DataEntrega = Convert.ToDateTime(reader["dataEntrega"]).ToString("dd/MM/yyyy");
+
+                            return entrega;
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        public Entrega ObterPorBeneficiario(int codigoBeneficiario)
+        {
+            using (SqlConnection conn = Conexao.Conectar())
+            {
+                string sql = @"
+                                SELECT TOP 1
+                                    codigoEntrega,
+                                    codigoCesta,
+                                    codigoBeneficiario,
+                                    dataEntrega
+                                FROM Entrega
+                                WHERE codigoBeneficiario = @codigoBeneficiario
+                                ORDER BY codigoEntrega DESC";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@codigoBeneficiario", codigoBeneficiario);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Entrega entrega = new Entrega();
+
+                            entrega.CodigoEntrega = Convert.ToInt32(reader["codigoEntrega"]);
+                            entrega.CodigoCesta = Convert.ToInt32(reader["codigoCesta"]);
+                            entrega.CodigoBeneficiario = Convert.ToInt32(reader["codigoBeneficiario"]);
+                            entrega.DataEntrega = Convert.ToDateTime(reader["dataEntrega"]).ToString("dd/MM/yyyy");
+
+                            return entrega;
+                        }
+                    }
+                }
+            }
+
+            return null;
         }
     }
 }

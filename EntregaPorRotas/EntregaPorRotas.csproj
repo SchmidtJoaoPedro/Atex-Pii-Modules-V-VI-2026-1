@@ -86,7 +86,6 @@
     <Compile Include="repository\BeneficiarioRepository.cs" />
     <Compile Include="repository\CategoriaRepository.cs" />
     <Compile Include="repository\CestasBasicasRepository.cs" />
-    <Compile Include="repository\Repository.cs" />
     <Compile Include="UI\Beneficiarios\frmBeneficiario.cs">
       <SubType>Form</SubType>
     </Compile>

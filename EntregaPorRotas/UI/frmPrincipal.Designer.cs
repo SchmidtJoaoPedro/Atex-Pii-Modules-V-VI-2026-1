@@ -46,11 +46,17 @@
             this.IncluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.incluirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cestaBasicasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entregaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.incluirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.txtCategoria = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.txtDataEntrega = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.txtCodCesta = new MetroFramework.Controls.MetroTextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
@@ -93,6 +99,12 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txtCodCesta);
+            this.panel2.Controls.Add(this.metroLabel6);
+            this.panel2.Controls.Add(this.txtDataEntrega);
+            this.panel2.Controls.Add(this.metroLabel5);
+            this.panel2.Controls.Add(this.txtCategoria);
+            this.panel2.Controls.Add(this.metroLabel4);
             this.panel2.Controls.Add(this.txtEndereco);
             this.panel2.Controls.Add(this.metroLabel1);
             this.panel2.Controls.Add(this.metroLabel3);
@@ -203,14 +215,14 @@
             // IncluirToolStripMenuItem
             // 
             this.IncluirToolStripMenuItem.Name = "IncluirToolStripMenuItem";
-            this.IncluirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.IncluirToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.IncluirToolStripMenuItem.Text = "Incluir";
             this.IncluirToolStripMenuItem.Click += new System.EventHandler(this.IncluirToolStripMenuItem_Click);
             // 
             // consultaToolStripMenuItem
             // 
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.consultaToolStripMenuItem.Text = "Consulta";
             this.consultaToolStripMenuItem.Click += new System.EventHandler(this.consultaToolStripMenuItem_Click);
             // 
@@ -222,6 +234,20 @@
             this.categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
             this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.categoriaToolStripMenuItem.Text = "Categoria";
+            // 
+            // incluirToolStripMenuItem1
+            // 
+            this.incluirToolStripMenuItem1.Name = "incluirToolStripMenuItem1";
+            this.incluirToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.incluirToolStripMenuItem1.Text = "Incluir";
+            this.incluirToolStripMenuItem1.Click += new System.EventHandler(this.incluirToolStripMenuItem1_Click);
+            // 
+            // consultaToolStripMenuItem1
+            // 
+            this.consultaToolStripMenuItem1.Name = "consultaToolStripMenuItem1";
+            this.consultaToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
+            this.consultaToolStripMenuItem1.Text = "Consulta";
+            this.consultaToolStripMenuItem1.Click += new System.EventHandler(this.consultaToolStripMenuItem1_Click);
             // 
             // cestaBasicasToolStripMenuItem
             // 
@@ -242,19 +268,59 @@
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
-            // incluirToolStripMenuItem1
+            // metroLabel4
             // 
-            this.incluirToolStripMenuItem1.Name = "incluirToolStripMenuItem1";
-            this.incluirToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.incluirToolStripMenuItem1.Text = "Incluir";
-            this.incluirToolStripMenuItem1.Click += new System.EventHandler(this.incluirToolStripMenuItem1_Click);
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel4.Location = new System.Drawing.Point(12, 220);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(70, 19);
+            this.metroLabel4.TabIndex = 14;
+            this.metroLabel4.Text = "Categoria:";
             // 
-            // consultaToolStripMenuItem1
+            // txtCategoria
             // 
-            this.consultaToolStripMenuItem1.Name = "consultaToolStripMenuItem1";
-            this.consultaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.consultaToolStripMenuItem1.Text = "Consulta";
-            this.consultaToolStripMenuItem1.Click += new System.EventHandler(this.consultaToolStripMenuItem1_Click);
+            this.txtCategoria.Location = new System.Drawing.Point(12, 242);
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.ReadOnly = true;
+            this.txtCategoria.Size = new System.Drawing.Size(270, 29);
+            this.txtCategoria.TabIndex = 15;
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel5.Location = new System.Drawing.Point(12, 166);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(88, 19);
+            this.metroLabel5.TabIndex = 16;
+            this.metroLabel5.Text = "Data Entrega:";
+            // 
+            // txtDataEntrega
+            // 
+            this.txtDataEntrega.Location = new System.Drawing.Point(12, 188);
+            this.txtDataEntrega.Name = "txtDataEntrega";
+            this.txtDataEntrega.ReadOnly = true;
+            this.txtDataEntrega.Size = new System.Drawing.Size(270, 29);
+            this.txtDataEntrega.TabIndex = 17;
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel6.Location = new System.Drawing.Point(12, 274);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(111, 19);
+            this.metroLabel6.TabIndex = 18;
+            this.metroLabel6.Text = "Codigo da Cesta:";
+            // 
+            // txtCodCesta
+            // 
+            this.txtCodCesta.Location = new System.Drawing.Point(12, 296);
+            this.txtCodCesta.Name = "txtCodCesta";
+            this.txtCodCesta.ReadOnly = true;
+            this.txtCodCesta.Size = new System.Drawing.Size(270, 29);
+            this.txtCodCesta.TabIndex = 19;
             // 
             // frmPrincipal
             // 
@@ -306,5 +372,11 @@
         private MetroFramework.Controls.MetroTextBox txtEndereco;
         private System.Windows.Forms.ToolStripMenuItem incluirToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem1;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroTextBox txtCodCesta;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroTextBox txtDataEntrega;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroTextBox txtCategoria;
     }
 }
