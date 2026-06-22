@@ -45,7 +45,9 @@ namespace EntregaPorRotas.UI
         private void CarregarDadosBeneficiario()
         {
             if (!(cbBeneficiarios.SelectedItem is Beneficiario beneficiario))
+            {
                 return;
+            }
 
             txtEndereco.Text = beneficiario.Endereco;
 
@@ -150,6 +152,7 @@ namespace EntregaPorRotas.UI
             frm.ShowDialog();
         }
 
+        // Entrega
         private void inserirToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmEntrega frm = new frmEntrega();
