@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntregaPorRotas.objetos
 {
-    internal class CestasBasicas
+    internal class CestaBasica
     {
         private int codigoCesta;
         private int codigoCategoria;

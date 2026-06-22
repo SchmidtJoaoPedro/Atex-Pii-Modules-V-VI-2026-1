@@ -1,6 +1,6 @@
-﻿namespace EntregaPorRotas.UI.Categorias
+﻿namespace EntregaPorRotas.UI.Entregas
 {
-    partial class frmCategoria
+    partial class frmEntrega
     {
         /// <summary>
         /// Required designer variable.
@@ -47,16 +47,16 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(309, 241);
-            this.panel1.TabIndex = 1;
+            this.panel1.TabIndex = 2;
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.Location = new System.Drawing.Point(12, 9);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(108, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(88, 19);
             this.metroLabel1.TabIndex = 2;
-            this.metroLabel1.Text = "Nome categoria:";
+            this.metroLabel1.Text = "Data entrega:";
             // 
             // txtDescricao
             // 
@@ -92,7 +92,6 @@
             this.btnCancelar.TabIndex = 0;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSalvar
             // 
@@ -105,18 +104,17 @@
             this.btnSalvar.TabIndex = 1;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // frmCategoria
+            // frmEntrega
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(309, 241);
             this.Controls.Add(this.panel1);
-            this.Name = "frmCategoria";
+            this.Name = "frmEntrega";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Incluir Categoria";
+            this.Text = "Inserir Entrega";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);

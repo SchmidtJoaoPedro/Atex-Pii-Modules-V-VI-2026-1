@@ -66,6 +66,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmConsultaCategoria";
             this.Text = "Consulta Categoria";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmConsultaCategoria_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridCategorias)).EndInit();

@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace EntregaPorRotas.backend
 {
-    internal class CestasBasicasRepository
+    internal class CestaBasicaRepository
     {
-        public List<CestasBasicas> ObterTodos()
+        public List<CestaBasica> ObterTodos()
         {
-            List<CestasBasicas> lista = new List<CestasBasicas>();
+            List<CestaBasica> lista = new List<CestaBasica>();
 
             using (SqlConnection conn = Conexao.Conectar())
             {
@@ -28,7 +28,7 @@ namespace EntregaPorRotas.backend
                 {
                     while (reader.Read())
                     {
-                        CestasBasicas cesta = new CestasBasicas();
+                        CestaBasica cesta = new CestaBasica();
 
                         cesta.CodigoCesta = Convert.ToInt32(reader["codigoCesta"]);
                         cesta.CodigoCategoria = Convert.ToInt32(reader["codigoCategoria"]);
@@ -42,7 +42,7 @@ namespace EntregaPorRotas.backend
             return lista;
         }
 
-        public CestasBasicas ObterPorId(int codigoCesta)
+        public CestaBasica ObterPorId(int codigoCesta)
         {
             using (SqlConnection conn = Conexao.Conectar())
             {
@@ -62,7 +62,7 @@ namespace EntregaPorRotas.backend
                     {
                         if (reader.Read())
                         {
-                            CestasBasicas cesta = new CestasBasicas();
+                            CestaBasica cesta = new CestaBasica();
 
                             cesta.CodigoCesta = Convert.ToInt32(reader["codigoCesta"]);
                             cesta.CodigoCategoria = Convert.ToInt32(reader["codigoCategoria"]);
@@ -77,9 +77,9 @@ namespace EntregaPorRotas.backend
             return null;
         }
 
-        public List<CestasBasicas> ObterPorCategoria(int codigoCategoria)
+        public List<CestaBasica> ObterPorCategoria(int codigoCategoria)
         {
-            List<CestasBasicas> lista = new List<CestasBasicas>();
+            List<CestaBasica> lista = new List<CestaBasica>();
 
             using (SqlConnection conn = Conexao.Conectar())
             {
@@ -99,7 +99,7 @@ namespace EntregaPorRotas.backend
                     {
                         while (reader.Read())
                         {
-                            CestasBasicas cesta = new CestasBasicas();
+                            CestaBasica cesta = new CestaBasica();
 
                             cesta.CodigoCesta = Convert.ToInt32(reader["codigoCesta"]);
                             cesta.CodigoCategoria = Convert.ToInt32(reader["codigoCategoria"]);
@@ -114,7 +114,7 @@ namespace EntregaPorRotas.backend
             return lista;
         }
 
-        public void Inserir(CestasBasicas cesta)
+        public void Inserir(CestaBasica cesta)
         {
             using (SqlConnection conn = Conexao.Conectar())
             {

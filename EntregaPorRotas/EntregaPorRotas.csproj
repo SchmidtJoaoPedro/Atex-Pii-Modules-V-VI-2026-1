@@ -72,7 +72,7 @@
     <Compile Include="Conexao.cs" />
     <Compile Include="objetos\Beneficiario.cs" />
     <Compile Include="objetos\Categoria.cs" />
-    <Compile Include="objetos\CestasBasicas.cs" />
+    <Compile Include="objetos\CestaBasica.cs" />
     <Compile Include="objetos\Entrega.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,7 +85,7 @@
     </Compile>
     <Compile Include="repository\BeneficiarioRepository.cs" />
     <Compile Include="repository\CategoriaRepository.cs" />
-    <Compile Include="repository\CestasBasicasRepository.cs" />
+    <Compile Include="repository\CestaBasicaRepository.cs" />
     <Compile Include="UI\Beneficiarios\frmBeneficiario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +103,30 @@
     </Compile>
     <Compile Include="UI\Categorias\frmConsultaCategoria.Designer.cs">
       <DependentUpon>frmConsultaCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CestasBasicas\frmCestaBasica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CestasBasicas\frmCestaBasica.Designer.cs">
+      <DependentUpon>frmCestaBasica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CestasBasicas\frmConsultaCestaBasica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CestasBasicas\frmConsultaCestaBasica.Designer.cs">
+      <DependentUpon>frmConsultaCestaBasica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Entregas\frmConsultaEntrega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Entregas\frmConsultaEntrega.Designer.cs">
+      <DependentUpon>frmConsultaEntrega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Entregas\frmEntrega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Entregas\frmEntrega.Designer.cs">
+      <DependentUpon>frmEntrega.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -130,6 +154,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Categorias\frmConsultaCategoria.resx">
       <DependentUpon>frmConsultaCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CestasBasicas\frmCestaBasica.resx">
+      <DependentUpon>frmCestaBasica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CestasBasicas\frmConsultaCestaBasica.resx">
+      <DependentUpon>frmConsultaCestaBasica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Entregas\frmConsultaEntrega.resx">
+      <DependentUpon>frmConsultaEntrega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Entregas\frmEntrega.resx">
+      <DependentUpon>frmEntrega.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

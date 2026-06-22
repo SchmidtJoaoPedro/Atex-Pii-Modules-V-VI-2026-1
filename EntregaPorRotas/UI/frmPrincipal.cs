@@ -3,6 +3,8 @@ using EntregaPorRotas.objetos;
 using EntregaPorRotas.repository;
 using EntregaPorRotas.UI.Beneficiarios;
 using EntregaPorRotas.UI.Categorias;
+using EntregaPorRotas.UI.CestasBasicas;
+using EntregaPorRotas.UI.Entregas;
 using System;
 using System.Windows.Forms;
 
@@ -22,7 +24,7 @@ namespace EntregaPorRotas.UI
 
         private async void frmPrincipal_Load(object sender, EventArgs e)
         {
-            busca($"{search}{PLACE}");
+            BuscarEndereco($"{search}{PLACE}");
 
             CarregarCampos();
         }
@@ -58,8 +60,8 @@ namespace EntregaPorRotas.UI
                 return;
             }
 
-            CestasBasicasRepository cestaRepository = new CestasBasicasRepository();
-            CestasBasicas cesta = cestaRepository.ObterPorId(entrega.CodigoCesta);
+            CestaBasicaRepository cestaRepository = new CestaBasicaRepository();
+            CestaBasica cesta = cestaRepository.ObterPorId(entrega.CodigoCesta);
 
             if (cesta == null)
             {
@@ -83,21 +85,21 @@ namespace EntregaPorRotas.UI
         }
 
         // Monta a URL de busca e navega para o endereço
-        private async void busca(string add)
+        private async void BuscarEndereco(string endereco)
         {
             await webView21.EnsureCoreWebView2Async();
-            webView21.CoreWebView2.Navigate(URL + add);
+            webView21.CoreWebView2.Navigate(URL + endereco);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtEndereco.Text))
             {
-                busca($"{search}{rua}");
+                BuscarEndereco($"{search}{rua}");
             }
             else
             {
-                busca($"{search}{txtEndereco.Text}");
+                BuscarEndereco($"{search}{txtEndereco.Text}");
             }
         }
 
@@ -132,6 +134,31 @@ namespace EntregaPorRotas.UI
         private void consultaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmConsultaCategoria frm = new frmConsultaCategoria();
+            frm.ShowDialog();
+        }
+
+        // Cestas Básicas
+        private void inserirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCestaBasica frm = new frmCestaBasica();
+            frm.ShowDialog();
+        }
+
+        private void consultaToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frmConsultaCestaBasica frm = new frmConsultaCestaBasica();
+            frm.ShowDialog();
+        }
+
+        private void inserirToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmEntrega frm = new frmEntrega();
+            frm.ShowDialog();
+        }
+
+        private void consultaToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            frmConsultaEntrega frm= new frmConsultaEntrega();
             frm.ShowDialog();
         }
 
