@@ -29,19 +29,29 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dateDescricao = new System.Windows.Forms.DateTimePicker();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.txtDescricao = new MetroFramework.Controls.MetroTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.cdCesta = new System.Windows.Forms.NumericUpDown();
+            this.cdBenefic = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cdCesta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cdBenefic)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cdBenefic);
+            this.panel1.Controls.Add(this.cdCesta);
+            this.panel1.Controls.Add(this.metroLabel3);
+            this.panel1.Controls.Add(this.metroLabel2);
+            this.panel1.Controls.Add(this.dateDescricao);
             this.panel1.Controls.Add(this.metroLabel1);
-            this.panel1.Controls.Add(this.txtDescricao);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -49,21 +59,21 @@
             this.panel1.Size = new System.Drawing.Size(309, 241);
             this.panel1.TabIndex = 2;
             // 
+            // dateDescricao
+            // 
+            this.dateDescricao.Location = new System.Drawing.Point(12, 86);
+            this.dateDescricao.Name = "dateDescricao";
+            this.dateDescricao.Size = new System.Drawing.Size(213, 20);
+            this.dateDescricao.TabIndex = 3;
+            // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(12, 9);
+            this.metroLabel1.Location = new System.Drawing.Point(12, 63);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(88, 19);
             this.metroLabel1.TabIndex = 2;
             this.metroLabel1.Text = "Data entrega:";
-            // 
-            // txtDescricao
-            // 
-            this.txtDescricao.Location = new System.Drawing.Point(12, 31);
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(285, 23);
-            this.txtDescricao.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
@@ -92,6 +102,7 @@
             this.btnCancelar.TabIndex = 0;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSalvar
             // 
@@ -104,6 +115,39 @@
             this.btnSalvar.TabIndex = 1;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(12, 9);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(92, 19);
+            this.metroLabel2.TabIndex = 5;
+            this.metroLabel2.Text = "Código Cesta:";
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(169, 9);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(128, 19);
+            this.metroLabel3.TabIndex = 6;
+            this.metroLabel3.Text = "Código Beneficiário:";
+            // 
+            // cdCesta
+            // 
+            this.cdCesta.Location = new System.Drawing.Point(13, 32);
+            this.cdCesta.Name = "cdCesta";
+            this.cdCesta.Size = new System.Drawing.Size(98, 20);
+            this.cdCesta.TabIndex = 7;
+            // 
+            // cdBenefic
+            // 
+            this.cdBenefic.Location = new System.Drawing.Point(169, 31);
+            this.cdBenefic.Name = "cdBenefic";
+            this.cdBenefic.Size = new System.Drawing.Size(128, 20);
+            this.cdBenefic.TabIndex = 8;
             // 
             // frmEntrega
             // 
@@ -118,6 +162,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cdCesta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cdBenefic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -126,9 +172,13 @@
 
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroTextBox txtDescricao;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.DateTimePicker dateDescricao;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private System.Windows.Forms.NumericUpDown cdBenefic;
+        private System.Windows.Forms.NumericUpDown cdCesta;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
     }
 }

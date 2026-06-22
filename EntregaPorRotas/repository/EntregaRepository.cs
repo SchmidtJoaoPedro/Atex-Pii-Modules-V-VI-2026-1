@@ -115,5 +115,26 @@ namespace EntregaPorRotas.backend
 
             return null;
         }
+
+        public static void Inserir(Entrega entrega)
+        {
+            using (SqlConnection conn = Conexao.Conectar())
+            {
+                string sql = @"
+                                INSERT INTO Entrega
+                                (codigoCesta,codigoBeneficiario,dataEntrega)
+                                VALUES
+                                (@CC, @CB, @DTE)";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@CC", entrega.CodigoCesta);
+                    cmd.Parameters.AddWithValue("@CB", entrega.CodigoBeneficiario);
+                    cmd.Parameters.AddWithValue("@DTE", entrega.DataEntrega);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

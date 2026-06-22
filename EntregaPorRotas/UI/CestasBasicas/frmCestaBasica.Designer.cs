@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.nudQuantidade = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.cbCategoria = new MetroFramework.Controls.MetroComboBox();
+            this.cbBeneficiarios = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.nudQuantidade);
+            this.panel1.Controls.Add(this.numericUpDown1);
             this.panel1.Controls.Add(this.metroLabel2);
-            this.panel1.Controls.Add(this.cbCategoria);
+            this.panel1.Controls.Add(this.cbBeneficiarios);
             this.panel1.Controls.Add(this.metroLabel1);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -54,13 +54,12 @@
             this.panel1.Size = new System.Drawing.Size(309, 241);
             this.panel1.TabIndex = 3;
             // 
-            // nudQuantidade
+            // numericUpDown1
             // 
-            this.nudQuantidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nudQuantidade.Location = new System.Drawing.Point(12, 85);
-            this.nudQuantidade.Name = "nudQuantidade";
-            this.nudQuantidade.Size = new System.Drawing.Size(285, 20);
-            this.nudQuantidade.TabIndex = 13;
+            this.numericUpDown1.Location = new System.Drawing.Point(12, 85);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(285, 20);
+            this.numericUpDown1.TabIndex = 13;
             // 
             // metroLabel2
             // 
@@ -71,14 +70,15 @@
             this.metroLabel2.TabIndex = 11;
             this.metroLabel2.Text = "Categoria:";
             // 
-            // cbCategoria
+            // cbBeneficiarios
             // 
-            this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.ItemHeight = 23;
-            this.cbCategoria.Location = new System.Drawing.Point(12, 31);
-            this.cbCategoria.Name = "cbCategoria";
-            this.cbCategoria.Size = new System.Drawing.Size(285, 29);
-            this.cbCategoria.TabIndex = 10;
+            this.cbBeneficiarios.FormattingEnabled = true;
+            this.cbBeneficiarios.ItemHeight = 23;
+            this.cbBeneficiarios.Location = new System.Drawing.Point(12, 31);
+            this.cbBeneficiarios.Name = "cbBeneficiarios";
+            this.cbBeneficiarios.Size = new System.Drawing.Size(285, 29);
+            this.cbBeneficiarios.TabIndex = 10;
+            this.cbBeneficiarios.SelectedIndexChanged += new System.EventHandler(this.cbBeneficiarios_SelectedIndexChanged);
             // 
             // metroLabel1
             // 
@@ -116,7 +116,6 @@
             this.btnCancelar.TabIndex = 0;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSalvar
             // 
@@ -129,7 +128,6 @@
             this.btnSalvar.TabIndex = 1;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // frmCestaBasica
             // 
@@ -141,10 +139,9 @@
             this.Name = "frmCestaBasica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inserir Cesta Basica";
-            this.Load += new System.EventHandler(this.frmCestaBasica_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -153,9 +150,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.NumericUpDown nudQuantidade;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroComboBox cbCategoria;
+        private MetroFramework.Controls.MetroComboBox cbBeneficiarios;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnCancelar;
