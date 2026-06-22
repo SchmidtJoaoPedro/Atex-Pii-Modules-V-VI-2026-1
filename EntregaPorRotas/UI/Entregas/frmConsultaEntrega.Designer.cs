@@ -28,7 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.bdEntrega = new System.Windows.Forms.BindingSource(this.components);
+            this.gridEntrega = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.bdEntrega)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridEntrega)).BeginInit();
             this.SuspendLayout();
+            // 
+            // gridEntrega
+            // 
+            this.gridEntrega.AutoGenerateColumns = false;
+            this.gridEntrega.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.gridEntrega.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridEntrega.DataSource = this.bdEntrega;
+            this.gridEntrega.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridEntrega.Location = new System.Drawing.Point(0, 0);
+            this.gridEntrega.Name = "gridEntrega";
+            this.gridEntrega.Size = new System.Drawing.Size(1484, 761);
+            this.gridEntrega.TabIndex = 3;
             // 
             // frmConsultaEntrega
             // 
@@ -36,14 +53,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1484, 761);
+            this.Controls.Add(this.gridEntrega);
             this.Name = "frmConsultaEntrega";
             this.Text = "Consulta Entrega";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmConsultaEntrega_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bdEntrega)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridEntrega)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.BindingSource bdEntrega;
+        private System.Windows.Forms.DataGridView gridEntrega;
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EntregaPorRotas.backend;
+using EntregaPorRotas.repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +21,10 @@ namespace EntregaPorRotas.UI.Entregas
 
         private void frmConsultaEntrega_Load(object sender, EventArgs e)
         {
+            EntregaRepository repository = new EntregaRepository();
 
+            gridEntrega.AutoGenerateColumns = true;
+            bdEntrega.DataSource = repository.ObterTodos();
         }
     }
 }
