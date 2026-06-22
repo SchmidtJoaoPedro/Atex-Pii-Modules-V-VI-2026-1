@@ -49,6 +49,8 @@
             this.cestaBasicasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entregaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.incluirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
@@ -195,25 +197,28 @@
             this.IncluirToolStripMenuItem,
             this.consultaToolStripMenuItem});
             this.cadasrtroToolStripMenuItem.Name = "cadasrtroToolStripMenuItem";
-            this.cadasrtroToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
-            this.cadasrtroToolStripMenuItem.Text = "Beneficiarios";
+            this.cadasrtroToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.cadasrtroToolStripMenuItem.Text = "Beneficiario";
             // 
             // IncluirToolStripMenuItem
             // 
             this.IncluirToolStripMenuItem.Name = "IncluirToolStripMenuItem";
-            this.IncluirToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.IncluirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.IncluirToolStripMenuItem.Text = "Incluir";
             this.IncluirToolStripMenuItem.Click += new System.EventHandler(this.IncluirToolStripMenuItem_Click);
             // 
             // consultaToolStripMenuItem
             // 
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.consultaToolStripMenuItem.Text = "Consulta";
             this.consultaToolStripMenuItem.Click += new System.EventHandler(this.consultaToolStripMenuItem_Click);
             // 
             // categoriaToolStripMenuItem
             // 
+            this.categoriaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.incluirToolStripMenuItem1,
+            this.consultaToolStripMenuItem1});
             this.categoriaToolStripMenuItem.Name = "categoriaToolStripMenuItem";
             this.categoriaToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.categoriaToolStripMenuItem.Text = "Categoria";
@@ -236,6 +241,20 @@
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
+            // incluirToolStripMenuItem1
+            // 
+            this.incluirToolStripMenuItem1.Name = "incluirToolStripMenuItem1";
+            this.incluirToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.incluirToolStripMenuItem1.Text = "Incluir";
+            this.incluirToolStripMenuItem1.Click += new System.EventHandler(this.incluirToolStripMenuItem1_Click);
+            // 
+            // consultaToolStripMenuItem1
+            // 
+            this.consultaToolStripMenuItem1.Name = "consultaToolStripMenuItem1";
+            this.consultaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.consultaToolStripMenuItem1.Text = "Consulta";
+            this.consultaToolStripMenuItem1.Click += new System.EventHandler(this.consultaToolStripMenuItem1_Click);
             // 
             // frmPrincipal
             // 
@@ -285,5 +304,7 @@
         private MetroFramework.Controls.MetroComboBox cbBeneficiarios;
         private System.Windows.Forms.BindingSource bdBeneficiarios;
         private MetroFramework.Controls.MetroTextBox txtEndereco;
+        private System.Windows.Forms.ToolStripMenuItem incluirToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem1;
     }
 }

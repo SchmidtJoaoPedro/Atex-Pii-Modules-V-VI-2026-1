@@ -7,8 +7,6 @@ namespace EntregaPorRotas.repository
 {
     internal class BeneficiarioRepository
     {
-        private readonly Conexao conexao = new Conexao();
-
         public List<Beneficiario> ObterTodos()
         {
             List<Beneficiario> lista = new List<Beneficiario>();
