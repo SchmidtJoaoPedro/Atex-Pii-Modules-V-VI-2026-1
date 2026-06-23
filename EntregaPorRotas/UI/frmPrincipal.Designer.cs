@@ -248,7 +248,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadasrtroToolStripMenuItem,
             this.categoriaToolStripMenuItem,
@@ -319,14 +319,14 @@
             // inserirToolStripMenuItem
             // 
             this.inserirToolStripMenuItem.Name = "inserirToolStripMenuItem";
-            this.inserirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inserirToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.inserirToolStripMenuItem.Text = "Inserir";
             this.inserirToolStripMenuItem.Click += new System.EventHandler(this.inserirToolStripMenuItem_Click);
             // 
             // consultaToolStripMenuItem2
             // 
             this.consultaToolStripMenuItem2.Name = "consultaToolStripMenuItem2";
-            this.consultaToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.consultaToolStripMenuItem2.Size = new System.Drawing.Size(121, 22);
             this.consultaToolStripMenuItem2.Text = "Consulta";
             this.consultaToolStripMenuItem2.Click += new System.EventHandler(this.consultaToolStripMenuItem2_Click);
             // 
@@ -342,14 +342,14 @@
             // inserirToolStripMenuItem1
             // 
             this.inserirToolStripMenuItem1.Name = "inserirToolStripMenuItem1";
-            this.inserirToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.inserirToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.inserirToolStripMenuItem1.Text = "Inserir";
             this.inserirToolStripMenuItem1.Click += new System.EventHandler(this.inserirToolStripMenuItem1_Click);
             // 
             // consultaToolStripMenuItem3
             // 
             this.consultaToolStripMenuItem3.Name = "consultaToolStripMenuItem3";
-            this.consultaToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.consultaToolStripMenuItem3.Size = new System.Drawing.Size(121, 22);
             this.consultaToolStripMenuItem3.Text = "Consulta";
             this.consultaToolStripMenuItem3.Click += new System.EventHandler(this.consultaToolStripMenuItem3_Click);
             // 

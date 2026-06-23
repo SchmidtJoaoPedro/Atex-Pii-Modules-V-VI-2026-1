@@ -25,7 +25,6 @@ namespace EntregaPorRotas.UI
         private async void frmPrincipal_Load(object sender, EventArgs e)
         {
             BuscarEndereco($"{search}{PLACE}");
-
             CarregarCampos();
         }
 

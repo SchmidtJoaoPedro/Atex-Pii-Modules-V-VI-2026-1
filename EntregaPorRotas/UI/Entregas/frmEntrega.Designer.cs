@@ -28,26 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbBeneficiarios = new MetroFramework.Controls.MetroComboBox();
+            this.bdBeneficiarios = new System.Windows.Forms.BindingSource(this.components);
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.dateDescricao = new System.Windows.Forms.DateTimePicker();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.cdCesta = new System.Windows.Forms.NumericUpDown();
-            this.cdBenefic = new System.Windows.Forms.NumericUpDown();
+            this.txtCesta = new MetroFramework.Controls.MetroTextBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdBeneficiarios)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cdCesta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cdBenefic)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.cdBenefic);
-            this.panel1.Controls.Add(this.cdCesta);
+            this.panel1.Controls.Add(this.txtCesta);
+            this.panel1.Controls.Add(this.cbBeneficiarios);
             this.panel1.Controls.Add(this.metroLabel3);
             this.panel1.Controls.Add(this.metroLabel2);
             this.panel1.Controls.Add(this.dateDescricao);
@@ -59,17 +60,46 @@
             this.panel1.Size = new System.Drawing.Size(309, 241);
             this.panel1.TabIndex = 2;
             // 
+            // cbBeneficiarios
+            // 
+            this.cbBeneficiarios.DataSource = this.bdBeneficiarios;
+            this.cbBeneficiarios.FormattingEnabled = true;
+            this.cbBeneficiarios.ItemHeight = 23;
+            this.cbBeneficiarios.Location = new System.Drawing.Point(12, 31);
+            this.cbBeneficiarios.Name = "cbBeneficiarios";
+            this.cbBeneficiarios.Size = new System.Drawing.Size(285, 29);
+            this.cbBeneficiarios.TabIndex = 10;
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(12, 9);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(80, 19);
+            this.metroLabel3.TabIndex = 6;
+            this.metroLabel3.Text = "Beneficiário:";
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(12, 63);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(92, 19);
+            this.metroLabel2.TabIndex = 5;
+            this.metroLabel2.Text = "Código Cesta:";
+            // 
             // dateDescricao
             // 
-            this.dateDescricao.Location = new System.Drawing.Point(12, 86);
+            this.dateDescricao.Location = new System.Drawing.Point(12, 139);
+            this.dateDescricao.MinDate = new System.DateTime(1900, 12, 31, 0, 0, 0, 0);
             this.dateDescricao.Name = "dateDescricao";
-            this.dateDescricao.Size = new System.Drawing.Size(213, 20);
+            this.dateDescricao.Size = new System.Drawing.Size(285, 20);
             this.dateDescricao.TabIndex = 3;
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(12, 63);
+            this.metroLabel1.Location = new System.Drawing.Point(12, 117);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(88, 19);
             this.metroLabel1.TabIndex = 2;
@@ -117,37 +147,12 @@
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // metroLabel2
+            // txtCesta
             // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(12, 9);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(92, 19);
-            this.metroLabel2.TabIndex = 5;
-            this.metroLabel2.Text = "Código Cesta:";
-            // 
-            // metroLabel3
-            // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(169, 9);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(128, 19);
-            this.metroLabel3.TabIndex = 6;
-            this.metroLabel3.Text = "Código Beneficiário:";
-            // 
-            // cdCesta
-            // 
-            this.cdCesta.Location = new System.Drawing.Point(13, 32);
-            this.cdCesta.Name = "cdCesta";
-            this.cdCesta.Size = new System.Drawing.Size(98, 20);
-            this.cdCesta.TabIndex = 7;
-            // 
-            // cdBenefic
-            // 
-            this.cdBenefic.Location = new System.Drawing.Point(169, 31);
-            this.cdBenefic.Name = "cdBenefic";
-            this.cdBenefic.Size = new System.Drawing.Size(128, 20);
-            this.cdBenefic.TabIndex = 8;
+            this.txtCesta.Location = new System.Drawing.Point(12, 85);
+            this.txtCesta.Name = "txtCesta";
+            this.txtCesta.Size = new System.Drawing.Size(285, 29);
+            this.txtCesta.TabIndex = 14;
             // 
             // frmEntrega
             // 
@@ -161,9 +166,8 @@
             this.Text = "Inserir Entrega";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdBeneficiarios)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cdCesta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cdBenefic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -177,8 +181,9 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.DateTimePicker dateDescricao;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private System.Windows.Forms.NumericUpDown cdBenefic;
-        private System.Windows.Forms.NumericUpDown cdCesta;
         private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroComboBox cbBeneficiarios;
+        private System.Windows.Forms.BindingSource bdBeneficiarios;
+        private MetroFramework.Controls.MetroTextBox txtCesta;
     }
 }

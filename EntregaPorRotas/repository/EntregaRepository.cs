@@ -1,7 +1,8 @@
-﻿using System;
+﻿using EntregaPorRotas.objetos;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
-using EntregaPorRotas.objetos;
 
 namespace EntregaPorRotas.backend
 {
@@ -116,21 +117,26 @@ namespace EntregaPorRotas.backend
             return null;
         }
 
-        public static void Inserir(Entrega entrega)
+        public void Inserir(Entrega entrega)
         {
+            if (entrega == null)
+            {
+                throw new ArgumentNullException(nameof(entrega));
+            }
+
             using (SqlConnection conn = Conexao.Conectar())
             {
-                string sql = @"
-                                INSERT INTO Entrega
-                                (codigoCesta,codigoBeneficiario,dataEntrega)
-                                VALUES
-                                (@CC, @CB, @DTE)";
+                const string sql = @"
+                                    INSERT INTO Entrega
+                                    (codigoCesta,codigoBeneficiario,dataEntrega)
+                                    VALUES
+                                    (@CodigoCesta,@CodigoBeneficiario,@DataEntrega)";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@CC", entrega.CodigoCesta);
-                    cmd.Parameters.AddWithValue("@CB", entrega.CodigoBeneficiario);
-                    cmd.Parameters.AddWithValue("@DTE", entrega.DataEntrega);
+                    cmd.Parameters.Add("@CodigoCesta", SqlDbType.Int).Value = entrega.CodigoCesta;
+                    cmd.Parameters.Add("@CodigoBeneficiario", SqlDbType.Int).Value = entrega.CodigoBeneficiario;
+                    cmd.Parameters.Add("@DataEntrega", SqlDbType.Date).Value = Convert.ToDateTime(entrega.DataEntrega);
 
                     cmd.ExecuteNonQuery();
                 }

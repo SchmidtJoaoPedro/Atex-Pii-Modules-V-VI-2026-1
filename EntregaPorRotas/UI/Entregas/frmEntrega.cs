@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlTypes;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using EntregaPorRotas.backend;
+﻿using EntregaPorRotas.backend;
 using EntregaPorRotas.objetos;
 using EntregaPorRotas.repository;
+using System;
+using System.Windows.Forms;
 
 namespace EntregaPorRotas.UI.Entregas
 {
@@ -19,65 +11,71 @@ namespace EntregaPorRotas.UI.Entregas
         public frmEntrega()
         {
             InitializeComponent();
+            CarregarCampos();
         }
-        private BeneficiarioRepository rep1 = new BeneficiarioRepository();
-        private List<Beneficiario> lb = new List<Beneficiario>();
-        private List<CestaBasica> lc = new List<CestaBasica>();
-        private CestaBasicaRepository rep2 = new CestaBasicaRepository();
+
+        EntregaRepository repository = new EntregaRepository();
+        BeneficiarioRepository beneficiarioRepository = new BeneficiarioRepository();
+        CestaBasicaRepository cestaRepository = new CestaBasicaRepository();
+
+        private void CarregarCampos()
+        {
+
+            bdBeneficiarios.DataSource = null;
+            bdBeneficiarios.DataSource = beneficiarioRepository.ObterTodos();
+
+            cbBeneficiarios.DisplayMember = "NomeBeneficiario";
+            cbBeneficiarios.ValueMember = "CodigoBeneficiario";
+        }
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (cdCesta.Value <= 0 || cdBenefic.Value <= 0) 
+            if (!int.TryParse(txtCesta.Text, out int codigoCesta))
             {
-                MessageBox.Show("Código incorreto.");
+                MessageBox.Show("Informe um código de cesta válido.");
+                txtCesta.Focus();
                 return;
             }
 
-            lb = rep1.ObterTodos();
-            lc = rep2.ObterTodos();
-
-            int count1 = 0;
-            int count2 = 0;
-
-            foreach (Beneficiario b in lb)
+            if (cbBeneficiarios.SelectedIndex < 0)
             {
-                if (b.CodigoBeneficiario == cdBenefic.Value)
-                    break;
-                else
-                    ++count1;
-            }
-
-            foreach (CestaBasica c in lc)
-            {
-                if (c.CodigoCesta == cdCesta.Value)
-                    break;
-                else
-                    ++count2;
-            }
-
-            if (count1 >= lb.Count || count2 >= lc.Count)
-            {
-                MessageBox.Show($"Beneficiário ou Cesta inexistente. Certifique-se de que esta digitando o código corretamente.");
+                MessageBox.Show("Selecione um beneficiário.");
                 return;
             }
 
-            Entrega ent = new Entrega();
-            ent.CodigoCesta = Convert.ToInt32(cdCesta.Value);
-            ent.CodigoBeneficiario = Convert.ToInt32(cdBenefic.Value);
-            ent.DataEntrega = dateDescricao.Value.ToString("dd/MM/yyyy");
+            if (cestaRepository.ObterPorId(codigoCesta) == null)
+            {
+                MessageBox.Show("Cesta não encontrada.");
+                txtCesta.Focus();
+                return;
+            }
 
-            EntregaRepository.Inserir(ent);
-            MessageBox.Show("Entrega cadastrada com sucesso.");
+            Entrega entrega = new Entrega
+            {
+                CodigoCesta = codigoCesta,
+                CodigoBeneficiario = Convert.ToInt32(cbBeneficiarios.SelectedValue),
+                DataEntrega = dateDescricao.Value.ToString("dd/MM/yyyy")
+            };
 
-            dateDescricao.Value = DateTime.Today;
-            cdCesta.Value = 0;
-            cdBenefic.Value = 0;
+            try
+            {
+                repository.Inserir(entrega);
 
-            return;
+                MessageBox.Show("Entrega cadastrada com sucesso.");
+
+                dateDescricao.Value = DateTime.Today;
+                txtCesta.Clear();
+                cbBeneficiarios.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao cadastrar entrega.\n{ex.Message}");
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }
