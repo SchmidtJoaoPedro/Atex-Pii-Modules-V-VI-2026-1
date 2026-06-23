@@ -78,7 +78,6 @@
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(285, 29);
             this.cbCategoria.TabIndex = 10;
-            this.cbCategoria.SelectedIndexChanged += new System.EventHandler(this.cbBeneficiarios_SelectedIndexChanged);
             // 
             // metroLabel1
             // 
@@ -116,7 +115,7 @@
             this.btnCancelar.TabIndex = 0;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSalvar
             // 
@@ -129,7 +128,7 @@
             this.btnSalvar.TabIndex = 1;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click_1);
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // frmCestaBasica
             // 
@@ -141,7 +140,7 @@
             this.Name = "frmCestaBasica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inserir Cesta Basica";
-            this.Load += new System.EventHandler(this.frmCestaBasica_Load_1);
+            this.Load += new System.EventHandler(this.frmCestaBasica_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).EndInit();
