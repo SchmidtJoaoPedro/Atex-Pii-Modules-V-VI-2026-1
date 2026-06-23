@@ -17,6 +17,11 @@ namespace EntregaPorRotas.UI
             InitializeComponent();
         }
 
+        private EntregaRepository entregaRepository = new EntregaRepository();
+        private CestaBasicaRepository cestaRepository = new CestaBasicaRepository();
+        private CategoriaRepository categoriaRepository = new CategoriaRepository();
+        private BeneficiarioRepository beneficiarioRepository = new BeneficiarioRepository();
+
         private readonly string rua;
         private readonly string URL = "https://www.google.com/maps/";
         private readonly string search = "search/";
@@ -30,15 +35,14 @@ namespace EntregaPorRotas.UI
 
         private void CarregarCampos()
         {
-            BeneficiarioRepository beneficiarioRepository = new BeneficiarioRepository();
-
             bdBeneficiarios.DataSource = null;
             bdBeneficiarios.DataSource = beneficiarioRepository.ObterTodos();
 
             cbBeneficiarios.DisplayMember = "NomeBeneficiario";
             cbBeneficiarios.ValueMember = "CodigoBeneficiario";
 
-            CarregarDadosBeneficiario();
+            CarregarCestas();
+            CarregarDadosCesta();
         }
 
         private void CarregarDadosBeneficiario()
@@ -49,40 +53,63 @@ namespace EntregaPorRotas.UI
             }
 
             txtEndereco.Text = beneficiario.Endereco;
+        }
 
-            EntregaRepository entregaRepository = new EntregaRepository();
-            Entrega entrega = entregaRepository.ObterPorBeneficiario(beneficiario.CodigoBeneficiario);
-
-            if (entrega == null)
+        private void CarregarCestas()
+        {
+            if (!(cbBeneficiarios.SelectedItem is Beneficiario beneficiario))
             {
-                txtDataEntrega.Clear();
-                txtCodCesta.Clear();
-                txtCategoria.Clear();
                 return;
             }
 
-            CestaBasicaRepository cestaRepository = new CestaBasicaRepository();
+            bdCesta.DataSource = entregaRepository.ObterTodosPorBeneficiario(beneficiario.CodigoBeneficiario);
+
+            cbCesta.DisplayMember = "CodigoCesta";
+            cbCesta.ValueMember = "CodigoCesta";
+        }
+
+        private void CarregarDadosCesta()
+        {
+            if (!(cbCesta.SelectedItem is Entrega entrega))
+            {
+                return;
+            }
+
             CestaBasica cesta = cestaRepository.ObterPorId(entrega.CodigoCesta);
 
             if (cesta == null)
             {
                 txtDataEntrega.Clear();
-                txtCodCesta.Clear();
                 txtCategoria.Clear();
                 return;
             }
 
-            CategoriaRepository categoriaRepository = new CategoriaRepository();
             Categoria categoria = categoriaRepository.ObterPorId(cesta.CodigoCategoria);
 
-            txtDataEntrega.Text = entrega.DataEntrega;
-            txtCodCesta.Text = cesta.CodigoCesta.ToString();
+            txtDataEntrega.Text = Convert.ToDateTime(entrega.DataEntrega).ToString("dd/MM/yyyy");
             txtCategoria.Text = categoria?.Descricao ?? "";
+        }
+
+        private void cbCesta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CarregarDadosCesta();
         }
 
         private void cbBeneficiarios_SelectedIndexChanged(object sender, EventArgs e)
         {
             CarregarDadosBeneficiario();
+            CarregarCestas();
+
+            if (cbCesta.Items.Count > 0)
+            {
+                cbCesta.SelectedIndex = 0;
+                CarregarDadosCesta();
+            }
+            else
+            {
+                txtDataEntrega.Clear();
+                txtCategoria.Clear();
+            }
         }
 
         // Monta a URL de busca e navega para o endereço

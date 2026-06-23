@@ -2,13 +2,6 @@
 using EntregaPorRotas.objetos;
 using EntregaPorRotas.repository;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EntregaPorRotas.UI.CestasBasicas
@@ -20,9 +13,9 @@ namespace EntregaPorRotas.UI.CestasBasicas
             InitializeComponent();
         }
 
-        private void cbBeneficiarios_SelectedIndexChanged(object sender, EventArgs e)
+        private void frmCestaBasica_Load(object sender, EventArgs e)
         {
-
+            CarregarCategorias();
         }
 
         private void CarregarCategorias()
@@ -51,17 +44,7 @@ namespace EntregaPorRotas.UI.CestasBasicas
             return true;
         }
 
-        private void btnCancelar_Click_1(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void frmCestaBasica_Load_1(object sender, EventArgs e)
-        {
-            CarregarCategorias();
-        }
-
-        private void btnSalvar_Click_1(object sender, EventArgs e)
+        private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (!Validar())
             {
@@ -82,6 +65,10 @@ namespace EntregaPorRotas.UI.CestasBasicas
 
             cbCategoria.SelectedIndex = 0;
             nudQuantidade.Value = nudQuantidade.Minimum;
+        }
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

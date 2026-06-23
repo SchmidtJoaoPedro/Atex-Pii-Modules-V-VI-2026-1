@@ -79,42 +79,43 @@ namespace EntregaPorRotas.backend
             return null;
         }
 
-        public Entrega ObterPorBeneficiario(int codigoBeneficiario)
+        public List<Entrega> ObterTodosPorBeneficiario(int codigoBeneficiario)
         {
+            List<Entrega> lista = new List<Entrega>();
+
             using (SqlConnection conn = Conexao.Conectar())
             {
                 string sql = @"
-                                SELECT TOP 1
+                                SELECT
                                     codigoEntrega,
                                     codigoCesta,
                                     codigoBeneficiario,
                                     dataEntrega
                                 FROM Entrega
-                                WHERE codigoBeneficiario = @codigoBeneficiario
+                                WHERE codigoBeneficiario = @CodigoBeneficiario
                                 ORDER BY codigoEntrega DESC";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    cmd.Parameters.AddWithValue("@codigoBeneficiario", codigoBeneficiario);
+                    cmd.Parameters.AddWithValue("@CodigoBeneficiario", codigoBeneficiario);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (reader.Read())
+                        while (reader.Read())
                         {
-                            Entrega entrega = new Entrega();
-
-                            entrega.CodigoEntrega = Convert.ToInt32(reader["codigoEntrega"]);
-                            entrega.CodigoCesta = Convert.ToInt32(reader["codigoCesta"]);
-                            entrega.CodigoBeneficiario = Convert.ToInt32(reader["codigoBeneficiario"]);
-                            entrega.DataEntrega = Convert.ToDateTime(reader["dataEntrega"]).ToString("dd/MM/yyyy");
-
-                            return entrega;
+                            lista.Add(new Entrega
+                            {
+                                CodigoEntrega = Convert.ToInt32(reader["codigoEntrega"]),
+                                CodigoCesta = Convert.ToInt32(reader["codigoCesta"]),
+                                CodigoBeneficiario = Convert.ToInt32(reader["codigoBeneficiario"]),
+                                DataEntrega = reader["dataEntrega"].ToString()
+                            });
                         }
                     }
                 }
             }
 
-            return null;
+            return lista;
         }
 
         public void Inserir(Entrega entrega)
