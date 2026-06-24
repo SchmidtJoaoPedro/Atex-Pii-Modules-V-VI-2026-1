@@ -143,5 +143,26 @@ namespace EntregaPorRotas.backend
                 }
             }
         }
+
+        public void ObterEnderecoDeHoje(List<string> enderecos)
+        {
+            using (SqlConnection conn = Conexao.Conectar())
+            {
+                string sql = @"SELECT b.endereco
+                                FROM Beneficiario AS b
+                                INNER JOIN Entrega e ON b.codigoBeneficiario = e.codigoBeneficiario
+                                WHERE CAST(e.dataEntrega AS DATE) = CAST(GETDATE() AS DATE);";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read()) 
+                        {
+                            enderecos.Add(reader["endereco"].ToString());
+                        }
+                    }
+                }
+            }
+        }
     }
 }

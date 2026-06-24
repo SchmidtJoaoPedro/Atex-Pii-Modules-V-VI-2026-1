@@ -6,6 +6,7 @@ using EntregaPorRotas.UI.Categorias;
 using EntregaPorRotas.UI.CestasBasicas;
 using EntregaPorRotas.UI.Entregas;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace EntregaPorRotas.UI
@@ -22,15 +23,28 @@ namespace EntregaPorRotas.UI
         private CategoriaRepository categoriaRepository = new CategoriaRepository();
         private BeneficiarioRepository beneficiarioRepository = new BeneficiarioRepository();
 
+        // helpers
         private readonly string rua;
         private readonly string URL = "https://www.google.com/maps/";
+        private string rotaFinal;
+        private bool count = false;
+
+        // URL keywords
         private readonly string search = "search/";
+        private readonly string dir = "dir/";
+       
+        // endereços comuns
         private readonly string PLACE = "Computação+Unifenas";
+        private readonly string partida = "Av. São José, 2080, Alfenas";
+
+        // lista de endereços para traçar rotas
+        private List<string> enderecos = new List<string>();
 
         private async void frmPrincipal_Load(object sender, EventArgs e)
         {
             BuscarEndereco($"{search}{PLACE}");
             CarregarCampos();
+            count = true;
         }
 
         private void CarregarCampos()
@@ -119,6 +133,12 @@ namespace EntregaPorRotas.UI
             webView21.CoreWebView2.Navigate(URL + endereco);
         }
 
+        private async void TracarRota(string endereco)
+        {
+            await webView21.EnsureCoreWebView2Async();
+            webView21.CoreWebView2.Navigate(URL + dir + partida + "/" + endereco);
+        }
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtEndereco.Text))
@@ -129,6 +149,46 @@ namespace EntregaPorRotas.UI
             {
                 BuscarEndereco($"{search}{txtEndereco.Text}");
             }
+        }
+
+        private void rotasBtn_Click(object sender, EventArgs e)
+        {
+            entregaRepository.ObterEnderecoDeHoje(enderecos);
+
+            int Counter = 0;
+            foreach (string s in enderecos)
+            {
+                if (rotaFinal != null && rotaFinal.Contains(s))
+                {
+                    continue;
+                }
+
+                if (Counter != enderecos.Count)
+                {
+                    rotaFinal += s + "/";
+                    Counter++;
+                }
+                else
+                {
+                    rotaFinal += s;
+                }
+            }
+
+            if (!(string.IsNullOrEmpty(rotaFinal)))
+            {
+                TracarRota(rotaFinal);
+            }
+            else
+            {
+                MessageBox.Show("Insira um endereço válido.");
+                return;
+            }
+        }
+        private void btnPontoOrigem_Click(object sender, EventArgs e)
+        {
+            enderecos.Clear();
+            rotaFinal = null;
+            BuscarEndereco($"{search}{partida}");
         }
 
         #region Formularios
