@@ -33,6 +33,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbCesta = new MetroFramework.Controls.MetroComboBox();
+            this.bdCesta = new System.Windows.Forms.BindingSource(this.components);
+            this.rotasBtn = new System.Windows.Forms.Button();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.txtDataEntrega = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
@@ -46,6 +49,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnPontoOrigem = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadasrtroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.IncluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,16 +64,14 @@
             this.inserirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cbCesta = new MetroFramework.Controls.MetroComboBox();
-            this.bdCesta = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdCesta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdBeneficiarios)).BeginInit();
             this.panel5.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdCesta)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -106,6 +108,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.cbCesta);
+            this.panel2.Controls.Add(this.rotasBtn);
             this.panel2.Controls.Add(this.metroLabel6);
             this.panel2.Controls.Add(this.txtDataEntrega);
             this.panel2.Controls.Add(this.metroLabel5);
@@ -117,11 +120,36 @@
             this.panel2.Controls.Add(this.cbBeneficiarios);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.btnBuscar);
+            this.panel2.Controls.Add(this.btnPontoOrigem);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(288, 745);
             this.panel2.TabIndex = 2;
+            // 
+            // cbCesta
+            // 
+            this.cbCesta.DataSource = this.bdCesta;
+            this.cbCesta.FormattingEnabled = true;
+            this.cbCesta.ItemHeight = 23;
+            this.cbCesta.Location = new System.Drawing.Point(12, 134);
+            this.cbCesta.Name = "cbCesta";
+            this.cbCesta.Size = new System.Drawing.Size(270, 29);
+            this.cbCesta.TabIndex = 20;
+            this.cbCesta.SelectedIndexChanged += new System.EventHandler(this.cbCesta_SelectedIndexChanged);
+            // 
+            // rotasBtn
+            // 
+            this.rotasBtn.BackColor = System.Drawing.Color.Salmon;
+            this.rotasBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.rotasBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rotasBtn.Location = new System.Drawing.Point(0, 669);
+            this.rotasBtn.Name = "rotasBtn";
+            this.rotasBtn.Size = new System.Drawing.Size(288, 38);
+            this.rotasBtn.TabIndex = 20;
+            this.rotasBtn.Text = "Traçar Rota";
+            this.rotasBtn.UseVisualStyleBackColor = false;
+            this.rotasBtn.Click += new System.EventHandler(this.rotasBtn_Click);
             // 
             // metroLabel6
             // 
@@ -240,6 +268,18 @@
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // btnPontoOrigem
+            // 
+            this.btnPontoOrigem.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnPontoOrigem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPontoOrigem.Location = new System.Drawing.Point(212, 331);
+            this.btnPontoOrigem.Name = "btnPontoOrigem";
+            this.btnPontoOrigem.Size = new System.Drawing.Size(70, 36);
+            this.btnPontoOrigem.TabIndex = 21;
+            this.btnPontoOrigem.Text = "Ponto de Origem";
+            this.btnPontoOrigem.UseVisualStyleBackColor = false;
+            this.btnPontoOrigem.Click += new System.EventHandler(this.btnPontoOrigem_Click);
+            // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.LightBlue;
@@ -354,17 +394,6 @@
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
-            // cbCesta
-            // 
-            this.cbCesta.DataSource = this.bdCesta;
-            this.cbCesta.FormattingEnabled = true;
-            this.cbCesta.ItemHeight = 23;
-            this.cbCesta.Location = new System.Drawing.Point(12, 134);
-            this.cbCesta.Name = "cbCesta";
-            this.cbCesta.Size = new System.Drawing.Size(270, 29);
-            this.cbCesta.TabIndex = 20;
-            this.cbCesta.SelectedIndexChanged += new System.EventHandler(this.cbCesta_SelectedIndexChanged);
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,12 +410,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdCesta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdBeneficiarios)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdCesta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,5 +456,7 @@
         private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem3;
         private MetroFramework.Controls.MetroComboBox cbCesta;
         private System.Windows.Forms.BindingSource bdCesta;
+        private System.Windows.Forms.Button rotasBtn;
+        private System.Windows.Forms.Button btnPontoOrigem;
     }
 }
