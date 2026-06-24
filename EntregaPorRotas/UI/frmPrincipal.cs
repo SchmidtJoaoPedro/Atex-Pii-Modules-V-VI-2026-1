@@ -27,7 +27,6 @@ namespace EntregaPorRotas.UI
         private readonly string rua;
         private readonly string URL = "https://www.google.com/maps/";
         private string rotaFinal;
-        private bool count = false;
 
         // URL keywords
         private readonly string search = "search/";
@@ -44,7 +43,6 @@ namespace EntregaPorRotas.UI
         {
             BuscarEndereco($"{search}{PLACE}");
             CarregarCampos();
-            count = true;
         }
 
         private void CarregarCampos()
@@ -156,31 +154,32 @@ namespace EntregaPorRotas.UI
             entregaRepository.ObterEnderecoDeHoje(enderecos);
 
             int Counter = 0;
-            foreach (string s in enderecos)
+
+            foreach (var itens in enderecos)
             {
-                if (rotaFinal != null && rotaFinal.Contains(s))
+                if (rotaFinal != null && rotaFinal.Contains(itens))
                 {
                     continue;
                 }
 
                 if (Counter != enderecos.Count)
                 {
-                    rotaFinal += s + "/";
+                    rotaFinal += itens + "/";
                     Counter++;
                 }
                 else
                 {
-                    rotaFinal += s;
+                    rotaFinal += itens;
                 }
             }
 
-            if (!(string.IsNullOrEmpty(rotaFinal)))
+            if (!string.IsNullOrEmpty(rotaFinal))
             {
                 TracarRota(rotaFinal);
             }
             else
             {
-                MessageBox.Show("Insira um endereço válido.");
+                MessageBox.Show("Não há endereços cadastrados na data de hoje para traçar a rota.","Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
         }
